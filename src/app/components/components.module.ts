@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
-    ShopListComponent
+    ShopListComponent,
+    RegisterComponent
   ],
   imports: [
     CommonModule,
@@ -14,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     IonicModule.forRoot()
     ],
   exports: [
-    ShopListComponent
+    ShopListComponent,
+    RegisterComponent
   ]
 })
 export class ComponentsModule { }
