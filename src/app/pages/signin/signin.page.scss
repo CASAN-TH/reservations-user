@@ -1,0 +1,22 @@
+.img {
+    width: 65%;
+    display: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+.center {
+    display: table-cell;
+    // height: calc(96vh - 145px);
+    height: 95vh;
+    text-align: center;
+    width: 100vw;
+    vertical-align: middle;
+}
+.button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    margin-top: 50px;
+   
+  }
