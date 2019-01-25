@@ -1,34 +1,46 @@
-
 <ion-content padding>
 
-<ion-list>
-    
-        <ion-img class ="img"src="https://res.cloudinary.com/dyiuidzsc/image/upload/v1548315412/Mookata/mookata-Logo.png"></ion-img>
+  <ion-list>
+
+    <ion-img class="img" src="https://res.cloudinary.com/dyiuidzsc/image/upload/v1548315412/Mookata/mookata-Logo.png"></ion-img>
 
   </ion-list>
 
   <ion-item>
-      <ion-icon name="person"></ion-icon>
-      <ion-label  position="fixed">Username</ion-label>
-      <ion-input [(ngModel)]="username" >กรุณากรอก Username</ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-icon name="key"></ion-icon>
-        <ion-label position="fixed">password</ion-label>
-        <ion-input [(ngModel)]="password" >กรุณากรอก Password</ion-input>
-      </ion-item>
+    <ion-icon name="person"></ion-icon>
+    <ion-label position="fixed">Username</ion-label>
+    <ion-input [(ngModel)]="username">กรุณากรอก Username</ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-icon name="key"></ion-icon>
+    <ion-label position="fixed">password</ion-label>
+    <ion-input [(ngModel)]="password">กรุณากรอก Password</ion-input>
+  </ion-item>
 
-      <div><ion-row>
-        <ion-col size="6">
-            <ion-button mode="ios" shape="round" expand="full" (click)="confirm()">confirm</ion-button>
-        </ion-col>
-        <ion-col size="6">
-          <ion-button mode="ios" shape="round" color="danger" expand="full" (click)="cancel()">cancel</ion-button>
-        </ion-col>
-      </ion-row>
-    </div>
-        
-       
+  <div>
+    <ion-row>
+      <ion-col size="6">
+        <ion-button mode="ios" shape="round" expand="full" (click)="confirm()">confirm</ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button mode="ios" shape="round" color="danger" expand="full" (click)="cancel()">cancel</ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+   
+    <ion-button  class="imgfacebook" mode="ios" shape="round" expand="full">
+      <span>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </span>
+
+      <span class="font" >  Login with Facebook </span>
+    </ion-button>
+  
+  <ion-button class="imgsingup" mode="ios" shape="round" expand="full">sing up now </ion-button>
+
+
 
 
 </ion-content>
