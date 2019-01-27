@@ -13,8 +13,57 @@
 }
 
 .imageshop{
-    height: 170px;
-    width: 200px;
+    height: 136px;
+    width: 170px;
     object-fit: cover;
     border-radius: 5px;
+    margin: 5px;
 }
+
+
+.box{
+    background-color:white;
+    height: 160px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-top: 0px;
+    margin-bottom: 4px;
+}
+.crd-a{ 
+    display:inline-block;
+    // background-color: red;
+    height: 150x;
+    width: 150px;
+    margin: 5px;
+}
+
+.title-name{
+    background-color:white;
+}
+.magin{
+    margin-left: 6px;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+ion-card{
+    -webkit-box-shadow : none;
+    background-color: white;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 10px;
+    border-radius: 0px;
+}
+
+ion-card-content{
+    font-family: 'Mitr', sans-serif;
+    padding-top: 5px;
+}
+ion-card-title{
+    font-family: 'Mitr', sans-serif;
+}
+ion-card-subtitle{
+    font-family: 'Mitr', sans-serif;
+}
+

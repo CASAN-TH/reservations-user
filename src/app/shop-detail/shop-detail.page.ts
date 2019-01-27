@@ -12,6 +12,11 @@ export class ShopDetailPage implements OnInit {
   "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
   "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
   "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
+  "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
+  "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
+  "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
+  "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
+  "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
   "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg"
   
   ]
