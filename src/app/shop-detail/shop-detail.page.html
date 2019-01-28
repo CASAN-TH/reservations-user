@@ -1,7 +1,11 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>รายละเอียดร้านค้า</ion-title>
-  </ion-toolbar>
+<ion-header class="title">
+  
+    <ion-toolbar>
+        
+      <ion-title ><ion-icon class="icon" name="arrow-round-back"></ion-icon>รายละเอียดร้านค้า</ion-title>
+    </ion-toolbar>
+ 
+
 </ion-header>
 
 <ion-content>
@@ -15,7 +19,7 @@
       </ion-col>
       <ion-col size="6" align-self-center>
         <ion-badge color="success">เปิดอยู่</ion-badge> <span class="time"> จนถึง 21:00</span>
-          
+
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -30,17 +34,22 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <div class="title-name">
-    <h4 class="font color magin">รูปภาพ บรรยากาศร้าน & รีวิว</h4>
-  </div>
-  <div class="box">
-    <div class="crd-a" *ngFor="let item of review">
-      <img [src]="item" alt="err" class="imageshop">
+  <div class="bg-color">
+    <div class="title-name">
+      <h4 class="font color magin">รูปภาพ บรรยากาศร้าน & รีวิว</h4>
     </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="box" size="4" *ngFor="let item of review">
+          <img [src]="item" alt="err" class="imageshop">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 
-  <ion-card>
+
+
+  <ion-card class="bg-color" class="style ">
     <ion-card-header>
       <ion-card-subtitle>อาหารอีสานรสเเซ่บสะเด็ด</ion-card-subtitle>
       <ion-card-title>ร้านเลนัว</ion-card-title>
@@ -54,5 +63,14 @@
     </ion-card-content>
   </ion-card>
 
+  <ion-grid class="name-footer" style="background-color: rgba(255, 103, 43, 0.938);">
+    <ion-row>
+      <ion-col>
+        <h1 class="h1"> 55/77 หมู่ 11 ถนนวงแหวน-ลำลูกกา ตำบลบึงคำพร้อย อำเภอลำลูกกา จังหวัดปทุมธานี 12155</h1>
+        <h2 class="h2">โทร. 028876655, 0897766554</h2>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
