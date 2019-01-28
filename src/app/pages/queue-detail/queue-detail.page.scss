@@ -1,0 +1,39 @@
+.wait-queue {
+    margin-top: -8vw;
+    margin-bottom: 0px;
+    font-size: 6vw;
+    color: white;
+}
+
+.queue {
+    font-size: 29vw;
+    margin: 0px;
+    color: white;
+}
+
+.queue-2 {
+    margin: 0px;
+    font-size: 6vw;
+    color: white;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.mg-top {
+    margin-top: 60px;
+}
+
+.fs {
+    font-size: 4vw;
+}
