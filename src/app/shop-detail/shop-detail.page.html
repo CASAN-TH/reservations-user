@@ -5,8 +5,20 @@
 </ion-header>
 
 <ion-content>
-  <img src="https://1.bp.blogspot.com/-KlmMmqa7MHs/WGrAA2LpxDI/AAAAAAAAI_A/FIiLXwfYz5AdAqzbCUTzU9oXzuBCTes0wCLcB/s1600/Cover_TAMA.png"
+  <img class="image-title" src="https://1.bp.blogspot.com/-KlmMmqa7MHs/WGrAA2LpxDI/AAAAAAAAI_A/FIiLXwfYz5AdAqzbCUTzU9oXzuBCTes0wCLcB/s1600/Cover_TAMA.png"
     alt="">
+
+  <ion-grid class="name-title" style="background-color: #3e5156a1;">
+    <ion-row>
+      <ion-col size="6" text-center>
+        <h1>ร้านเลนัว</h1>
+      </ion-col>
+      <ion-col size="6" align-self-center>
+        <ion-badge color="success">เปิดอยู่</ion-badge> <span class="time"> จนถึง 21:00</span>
+          
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-grid style="background-color: white;">
     <ion-row>
@@ -20,7 +32,8 @@
   </ion-grid>
 
   <div class="title-name">
-      <h4 class="font color magin">รูปภาพ บรรยากาศร้าน & รีวิว</h4></div>
+    <h4 class="font color magin">รูปภาพ บรรยากาศร้าน & รีวิว</h4>
+  </div>
   <div class="box">
     <div class="crd-a" *ngFor="let item of review">
       <img [src]="item" alt="err" class="imageshop">
@@ -28,15 +41,18 @@
   </div>
 
   <ion-card>
-      <ion-card-header>
-        <ion-card-subtitle>อาหารอีสานรสเเซ่บสะเด็ด</ion-card-subtitle>
-        <ion-card-title>ร้านเลนัว</ion-card-title>
-      </ion-card-header>
-    
-      <ion-card-content>
-          บรรยากาศของร้านบอกได้คำเดียวว่าถ้าใครชอบนั่งชิลเเบบนั่งทานข้าวในสวนร่มรื่นจะต้องถูกอกถูกใจเเน่นอนค่ะ เพราะร้านนี้มีต้นไม้รายล้อมเต็มไปหมดเลยค่ะ ในโซนร้านอาหารจะอยู่ริมสระน้ำ ทำให้รู้สึกว่าเย็นสบายมีลมพัดผ่านตลอด โต๊ะ-เก้าอี้มีบริการหลายขนาดค่ะ ไม่ว่าจะมาเป็นกลุ่มเล็กหรือใหญ่ทางร้านก็มีให้บริการโดยเฉพาะโต๊ะริมน้ำจะฮิตเป็นพิเศษค่ะ นั่งทานไปชมวิวไป
-      </ion-card-content>
-    </ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>อาหารอีสานรสเเซ่บสะเด็ด</ion-card-subtitle>
+      <ion-card-title>ร้านเลนัว</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      บรรยากาศของร้านบอกได้คำเดียวว่าถ้าใครชอบนั่งชิลเเบบนั่งทานข้าวในสวนร่มรื่นจะต้องถูกอกถูกใจเเน่นอนค่ะ
+      เพราะร้านนี้มีต้นไม้รายล้อมเต็มไปหมดเลยค่ะ ในโซนร้านอาหารจะอยู่ริมสระน้ำ ทำให้รู้สึกว่าเย็นสบายมีลมพัดผ่านตลอด
+      โต๊ะ-เก้าอี้มีบริการหลายขนาดค่ะ
+      ไม่ว่าจะมาเป็นกลุ่มเล็กหรือใหญ่ทางร้านก็มีให้บริการโดยเฉพาะโต๊ะริมน้ำจะฮิตเป็นพิเศษค่ะ นั่งทานไปชมวิวไป
+    </ion-card-content>
+  </ion-card>
 
 
 </ion-content>
