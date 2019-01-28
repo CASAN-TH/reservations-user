@@ -9,25 +9,25 @@ import { HttpClient } from '@angular/common/http';
 
 
 export class AuthService {
-  
+
 
   constructor(
     private http: HttpClient
-  ) { 
+  ) {
     console.log(environment.apiURL);
   }
   register(body) {
     console.log(body);
-      return this.http.post(environment.apiURL + '/api/auth/signup',body).toPromise();
-}
+    return this.http.post(environment.apiURL + '/api/auth/signup', body).toPromise();
+  }
 
   signin(body) {
     console.log(body);
-      return this.http.post(environment.apiURL + '/api/auth/signin',body).toPromise();
-}
+    return this.http.post(environment.apiURL + '/api/auth/signin', body).toPromise();
+  }
 
 
-  
+
 
 
 

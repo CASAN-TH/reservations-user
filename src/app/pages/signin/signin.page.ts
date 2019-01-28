@@ -12,12 +12,12 @@ export class SigninPage implements OnInit {
 
   constructor(
     public navCtrl: NavController,
-    public authService:AuthService
+    public authService: AuthService
   ) { }
 
   username: any = '';
   password: any = '';
- 
+
 
   ngOnInit() {
   }
@@ -37,7 +37,10 @@ export class SigninPage implements OnInit {
   cancel() {
     this.navCtrl.navigateForward('');
   }
+  singup() {
+    this.navCtrl.navigateForward('register');
 
+  }
 
 
 
