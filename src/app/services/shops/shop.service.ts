@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -7,14 +7,20 @@ import { environment } from 'src/environments/environment';
 })
 export class ShopService {
 
-  constructor(public http:HttpClient) { }
+  constructor(public http: HttpClient) { }
 
-  getShop(){
+  private authorizationHeader() {
+    const token = window.localStorage.getItem('token@sharing-web-dev');
+    // console.log(token);
+    const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
+    return headers;
+  }
+
+  getShop() {
     return this.http.get(environment.apiURL + './api/shoplist').toPromise()
   }
-  getShopById(id){
-    return this.http.post(environment.apiURL + './api/shops',id).toPromise()
+  getShopById(_id) {
+    return this.http.get(environment.apiURL + './api/shops/' + _id , { headers: this.authorizationHeader() }).toPromise()
   }
 }
 
- 

@@ -37,12 +37,14 @@ implements OnInit {
 
   async ngOnInit() {
     this.requestShoplist = this.route.snapshot.paramMap.get('_id');
-    let id = {
-      shopid: this.shopid
+    let _id = {
+      shopid: this.requestShoplist
     }
-    let res: any = await this.ShopService.getShopById(id);
+    console.log(_id);
+
+    let res: any = await this.ShopService.getShopById(this.requestShoplist);
     console.log(res);
-    window.localStorage.setItem(environment.apiURL + './api/shops', res.token);
+    window.localStorage.setItem(environment.apiURL + '@token', res.token);
   }
   back() {
     this.navCtrl.navigateForward('');
