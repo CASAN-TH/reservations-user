@@ -44,7 +44,6 @@ implements OnInit {
 
     let res: any = await this.ShopService.getShopById(this.requestShoplist);
     console.log(res);
-    window.localStorage.setItem(environment.apiURL + '@token', res.token);
   }
   back() {
     this.navCtrl.navigateForward('');

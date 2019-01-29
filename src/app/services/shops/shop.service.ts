@@ -10,8 +10,8 @@ export class ShopService {
   constructor(public http: HttpClient) { }
 
   private authorizationHeader() {
-    const token = window.localStorage.getItem('token@sharing-web-dev');
-    // console.log(token);
+    const token = window.localStorage.getItem('http://13.229.103.246@token');
+    console.log(token);
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     return headers;
   }
