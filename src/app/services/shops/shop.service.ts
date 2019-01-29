@@ -12,4 +12,9 @@ export class ShopService {
   getShop(){
     return this.http.get(environment.apiURL + './api/shoplist').toPromise()
   }
+  getShopById(id){
+    return this.http.post(environment.apiURL + './api/shops',id).toPromise()
+  }
 }
+
+ 

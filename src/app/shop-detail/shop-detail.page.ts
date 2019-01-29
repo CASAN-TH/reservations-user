@@ -1,13 +1,18 @@
+
 import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { ShopService } from '../services/shops/shop.service';
 
 @Component({
   selector: 'app-shop-detail',
   templateUrl: './shop-detail.page.html',
   styleUrls: ['./shop-detail.page.scss'],
 })
-export class ShopDetailPage implements OnInit {
+export class ShopDetailPage 
+implements OnInit {
+  [x: string]: any;
 
   review = [
     "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
@@ -22,18 +27,22 @@ export class ShopDetailPage implements OnInit {
 
   ]
   requestShoplist: string;
+  authService: any;
 
   constructor(
     public navCtrl: NavController,
-    public route: ActivatedRoute
+    public route: ActivatedRoute,
+    public ShopService: ShopService
   ) { }
 
   async ngOnInit() {
-  this.requestShoplist = this.route.snapshot.paramMap.get('_id');
-   
-    if(this.requestShoplist){
-      console.log(this.requestShoplist);
+    this.requestShoplist = this.route.snapshot.paramMap.get('_id');
+    let id = {
+      shopid: this.shopid
     }
+    let res: any = await this.ShopService.getShopById(id);
+    console.log(res);
+    window.localStorage.setItem(environment.apiURL + './api/shops', res.token);
   }
   back() {
     this.navCtrl.navigateForward('');
