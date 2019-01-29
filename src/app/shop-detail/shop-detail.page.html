@@ -2,7 +2,7 @@
   
     <ion-toolbar>
         
-      <ion-title ><ion-icon class="icon" name="arrow-round-back"></ion-icon>รายละเอียดร้านค้า</ion-title>
+      <ion-title ><ion-icon class="icon" name="arrow-round-back"  (click)="back()"></ion-icon>รายละเอียดร้านค้า</ion-title>
     </ion-toolbar>
  
 
@@ -30,7 +30,7 @@
         <ion-label class="font color">รออีก 35 คิว</ion-label>
       </ion-col>
       <ion-col size="6" text-center>
-        <ion-label class="font color">จองคิว</ion-label>
+        <ion-label class="font color"  (click)="reserv()">จองคิว</ion-label>
       </ion-col>
     </ion-row>
   </ion-grid>

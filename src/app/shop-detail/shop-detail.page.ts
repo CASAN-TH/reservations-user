@@ -29,6 +29,9 @@ export class ShopDetailPage implements OnInit {
   back() {
     this.navCtrl.navigateForward('');
   }
+  reserv() {
+    this.navCtrl.navigateForward('queue-detail');
+  }
   
 
 }
