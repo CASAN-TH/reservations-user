@@ -1,5 +1,7 @@
 {
   "name": "Reservations",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

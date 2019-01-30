@@ -9,8 +9,7 @@
 
 <ion-content>
   <div *ngIf="dataDetail && dataDetail.image">
-    <img class="image-title" [src]="dataDetail.image"
-      alt="">
+    <img class="image-title" [src]="dataDetail.image" alt="">
   </div>
 
 
@@ -20,7 +19,7 @@
         <h1 class="text-ellipsis">{{dataDetail.name}}</h1>
       </ion-col>
       <ion-col size="6" align-self-center>
-        <ion-badge color="success">เปิดอยู่</ion-badge> <span class="time"> จนถึง 21:00</span>
+        <ion-badge color="success">เปิดอยู่</ion-badge> <span class="time"> จนถึง {{dataDetail.endtime |date: "shortTime"}}</span>
 
       </ion-col>
     </ion-row>
