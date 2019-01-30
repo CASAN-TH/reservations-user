@@ -44,7 +44,7 @@ export class SigninPage implements OnInit {
 
   }
   cancel() {
-    this.navCtrl.goBack();
+    this.navCtrl.navigateForward('');
   }
   singup() {
     this.navCtrl.navigateForward('register');

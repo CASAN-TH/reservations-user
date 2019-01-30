@@ -29,6 +29,7 @@ export class RegisterPage implements OnInit {
       const res: any = await this.authService.register(this.regisData);
       window.localStorage.setItem(environment.apiURL + '@token', res.token);
       console.log(res);
+      this.navCtrl.navigateForward('queue-detail');
     } catch (error) {
       console.log(error);
       // if (error) {
