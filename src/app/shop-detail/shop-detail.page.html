@@ -1,21 +1,23 @@
-<ion-header class="title">
-  
-    <ion-toolbar>
-        
-      <ion-title ><ion-icon class="icon" name="arrow-round-back"  (click)="back()"></ion-icon>รายละเอียดร้านค้า</ion-title>
-    </ion-toolbar>
- 
-
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <ion-icon class="icon" name="arrow-round-back" (click)="back()"></ion-icon>
+      รายละเอียดร้านค้า
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <img class="image-title" src="https://1.bp.blogspot.com/-KlmMmqa7MHs/WGrAA2LpxDI/AAAAAAAAI_A/FIiLXwfYz5AdAqzbCUTzU9oXzuBCTes0wCLcB/s1600/Cover_TAMA.png"
-    alt="">
+  <div *ngIf="dataDetail && dataDetail.image">
+    <img class="image-title" [src]="dataDetail.image"
+      alt="">
+  </div>
 
-  <ion-grid class="name-title" style="background-color: #3e5156a1;">
+
+  <ion-grid *ngIf="dataDetail && dataDetail.name" class="name-title" style="background-color: #3e5156a1;">
     <ion-row>
       <ion-col size="6" text-center>
-        <h1>ร้านเลนัว</h1>
+        <h1 class="text-ellipsis">{{dataDetail.name}}</h1>
       </ion-col>
       <ion-col size="6" align-self-center>
         <ion-badge color="success">เปิดอยู่</ion-badge> <span class="time"> จนถึง 21:00</span>
@@ -30,7 +32,7 @@
         <ion-label class="font color">รออีก 35 คิว</ion-label>
       </ion-col>
       <ion-col size="6" text-center>
-        <ion-label class="font color"  (click)="reserv()">จองคิว</ion-label>
+        <ion-label class="font color" (click)="reserv()">จองคิว</ion-label>
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -38,9 +40,9 @@
     <div class="title-name">
       <h4 class="font color magin">รูปภาพ บรรยากาศร้าน & รีวิว</h4>
     </div>
-    <ion-grid>
+    <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
       <ion-row>
-        <ion-col class="box" size="4" *ngFor="let item of review">
+        <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview">
           <img [src]="item" alt="err" class="imageshop">
         </ion-col>
       </ion-row>
@@ -49,28 +51,30 @@
 
 
 
-  <ion-card class="bg-color" class="style ">
+  <ion-card class="bg-color" class="style " *ngIf="dataDetail && dataDetail.name && dataDetail.descreiption.title && dataDetail.descreiption.detail">
     <ion-card-header>
-      <ion-card-subtitle>อาหารอีสานรสเเซ่บสะเด็ด</ion-card-subtitle>
-      <ion-card-title>ร้านเลนัว</ion-card-title>
+      <ion-card-subtitle>{{dataDetail.descreiption.title}}</ion-card-subtitle>
+      <ion-card-title>{{dataDetail.name}}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      บรรยากาศของร้านบอกได้คำเดียวว่าถ้าใครชอบนั่งชิลเเบบนั่งทานข้าวในสวนร่มรื่นจะต้องถูกอกถูกใจเเน่นอนค่ะ
-      เพราะร้านนี้มีต้นไม้รายล้อมเต็มไปหมดเลยค่ะ ในโซนร้านอาหารจะอยู่ริมสระน้ำ ทำให้รู้สึกว่าเย็นสบายมีลมพัดผ่านตลอด
-      โต๊ะ-เก้าอี้มีบริการหลายขนาดค่ะ
-      ไม่ว่าจะมาเป็นกลุ่มเล็กหรือใหญ่ทางร้านก็มีให้บริการโดยเฉพาะโต๊ะริมน้ำจะฮิตเป็นพิเศษค่ะ นั่งทานไปชมวิวไป
+      {{dataDetail.descreiption.detail}}
     </ion-card-content>
   </ion-card>
 
-  <ion-grid class="name-footer" style="background-color: rgba(255, 103, 43, 0.938);">
-    <ion-row>
-      <ion-col>
-        <h1 class="h1"> 55/77 หมู่ 11 ถนนวงแหวน-ลำลูกกา ตำบลบึงคำพร้อย อำเภอลำลูกกา จังหวัดปทุมธานี 12155</h1>
-        <h2 class="h2">โทร. 028876655, 0897766554</h2>
-      </ion-col>
-
-    </ion-row>
-  </ion-grid>
 
 </ion-content>
+<ion-footer *ngIf="dataDetail && dataDetail.house_no && dataDetail.district && dataDetail.subdistrict && dataDetail.province && dataDetail.village"
+  style="background-color: rgba(255, 103, 43, 0.938);">
+  <!-- <ion-grid class="name-footer" style="background-color: rgba(255, 103, 43, 0.938);">
+    <ion-row>
+      <ion-col> -->
+  <h1 class="h1"> {{dataDetail.house_no}} {{dataDetail.district}} {{dataDetail.subdistrict}} {{dataDetail.province}}
+    12155 {{dataDetail.village}}</h1>
+  <h2 class="h2">โทร. 028876655, 0897766554</h2>
+  <!-- </ion-col>
+
+    </ion-row>
+  </ion-grid> -->
+
+</ion-footer>

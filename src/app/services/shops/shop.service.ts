@@ -11,7 +11,7 @@ export class ShopService {
 
   private authorizationHeader() {
     const token = window.localStorage.getItem('http://13.229.103.246@token');
-    console.log(token);
+    // console.log(token);
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     return headers;
   }
@@ -20,7 +20,7 @@ export class ShopService {
     return this.http.get(environment.apiURL + './api/shoplist').toPromise()
   }
   getShopById(_id) {
-    return this.http.get(environment.apiURL + './api/shops/' + _id , { headers: this.authorizationHeader() }).toPromise()
+    return this.http.get(environment.apiURL + './api/shoplist/' + _id).toPromise()
   }
 }
 

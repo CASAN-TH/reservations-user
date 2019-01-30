@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
@@ -24,6 +25,7 @@ export class ShopListComponent implements OnInit {
 
   }
   onDetail(e) {
+    window.localStorage.setItem(environment.apiURL + 'shop_id', e);
     this.navCtrl.navigateForward('shop-detail/' + e);
   }
 

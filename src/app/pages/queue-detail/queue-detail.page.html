@@ -7,9 +7,9 @@
   <div class="container">
 
     <img src="https://res.cloudinary.com/dyiuidzsc/image/upload/v1548663724/Mookata/BG-queue-detail.png" alt="">
-    <div class="centered">
+    <div class="centered" >
       <p class="wait-queue">รออีก</p>
-      <p class="queue">5</p>
+      <p class="queue" *ngIf="dataQueue">{{dataQueue.queue}}</p>
       <p class="queue-2">คิว</p>
     </div>
 
@@ -21,13 +21,8 @@
     <ion-col size="10">
       <ion-item>
         <ion-label class="fs" style="color: rgb(255, 103, 43);">จำนวนคน</ion-label>
-        <ion-select class="fs" placeholder="1">
-          <ion-select-option class="fs" value="f">1</ion-select-option>
-          <ion-select-option class="fs" value="m">2</ion-select-option>
-          <ion-select-option class="fs" value="f">3</ion-select-option>
-          <ion-select-option class="fs" value="m">4</ion-select-option>
-          <ion-select-option class="fs" value="f">5</ion-select-option>
-          <ion-select-option class="fs" value="m">6</ion-select-option>
+        <ion-select class="fs" placeholder="กรุณาระบุจำนวน">
+          <ion-select-option class="fs" *ngFor="let item of dataPeople"  [value]="item.num" (click)="getValue(item.num)">{{item.num}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>

@@ -10,10 +10,10 @@ import { ShopService } from '../services/shops/shop.service';
   templateUrl: './shop-detail.page.html',
   styleUrls: ['./shop-detail.page.scss'],
 })
-export class ShopDetailPage 
-implements OnInit {
+export class ShopDetailPage implements OnInit {
   [x: string]: any;
-
+  dataDetail: any;
+  dataToken: any;
   review = [
     "https://kiji.life/eats/wp-content/uploads/2018/09/FCM_3296-copy.jpg",
     "https://mpics.mgronline.com/pics/Images/560000001863501.JPEG",
@@ -32,24 +32,47 @@ implements OnInit {
   constructor(
     public navCtrl: NavController,
     public route: ActivatedRoute,
-    public ShopService: ShopService
+    public shopService: ShopService
   ) { }
 
   async ngOnInit() {
-    this.requestShoplist = this.route.snapshot.paramMap.get('_id');
-    let _id = {
-      shopid: this.requestShoplist
-    }
-    console.log(_id);
+    let dataToken = window.localStorage.getItem(environment.apiURL + '@token');
+    this.dataToken = dataToken;
+    console.log(dataToken);
 
-    let res: any = await this.ShopService.getShopById(this.requestShoplist);
-    console.log(res);
+    this.requestShoplist = this.route.snapshot.paramMap.get('_id');
+    console.log(this.requestShoplist);
+
+    const _id = {
+      shopid: this.requestShoplist
+    };
+    // console.log(_id);
+    this.getDetail();
+
+  }
+  async getDetail() {
+    try {
+      const res: any = await this.shopService.getShopById(this.requestShoplist);
+      this.dataDetail = res.data;
+      console.log(this.dataDetail);
+
+    } catch (error) {
+
+    }
+
   }
   back() {
     this.navCtrl.navigateForward('');
   }
   reserv() {
-    this.navCtrl.navigateForward('queue-detail');
+    if (this.dataToken) {
+
+      this.navCtrl.navigateForward('queue-detail');
+    } else {
+      this.navCtrl.navigateForward('signin');
+
+    }
+
   }
 
 

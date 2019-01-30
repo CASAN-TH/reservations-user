@@ -22,20 +22,29 @@ export class SigninPage implements OnInit {
   ngOnInit() {
   }
   async confirm() {
-    let body = {
-      username: this.username,
-      password: this.password
-    }
-    console.log(body);
+    try {
+      let body = {
+        username: this.username,
+        password: this.password
+      }
+      console.log(body);
+      let res: any = await this.authService.signin(body);
+      console.log(res);
+      window.localStorage.setItem(environment.apiURL + '@token', res.token);
+      if (res) {
+        let me: any = await this.authService.me()
+        console.log(me)
+        window.localStorage.setItem(environment.apiURL + 'user', JSON.stringify(me.data));
+      }
+      this.navCtrl.navigateForward("queue-detail");
+    } catch (error) {
 
-    let res: any = await this.authService.signin(body);
-    console.log(res);
-    window.localStorage.setItem(environment.apiURL + '@token', res.token);
-    //this.navCtrl.navigateForward("")
+    }
+
 
   }
   cancel() {
-    this.navCtrl.navigateForward('');
+    this.navCtrl.goBack();
   }
   singup() {
     this.navCtrl.navigateForward('register');
