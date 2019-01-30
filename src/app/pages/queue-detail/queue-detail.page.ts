@@ -10,6 +10,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./queue-detail.page.scss'],
 })
 export class QueueDetailPage implements OnInit {
+  people: any;
   dataPeople: Array<any> = [
     {
       num: 1,
@@ -59,16 +60,17 @@ export class QueueDetailPage implements OnInit {
 
   }
   getValue(e) {
+    // console.log(e);
     this.data = e;
-    console.log(e);
+    console.log(this.people);
   }
   async confirm() {
-    // console.log(this.data);
+    console.log(this.people);
     // this.getValue(e);
     // console.log(this.peoples);
     try {
       let dataSave = {
-        peoples: '5',
+        peoples: this.people,
         shop_id: this.shop_id,
         status: true
       }
