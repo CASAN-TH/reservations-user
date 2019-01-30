@@ -13,7 +13,7 @@
   </div>
 
 
-  <ion-grid *ngIf="dataDetail && dataDetail.name" class="name-title" style="background-color: #3e5156a1;">
+  <ion-grid class="ion-grid-background" *ngIf="dataDetail && dataDetail.name" class="name-title" >
     <ion-row>
       <ion-col size="6" text-center>
         <h1 class="text-ellipsis">{{dataDetail.name}}</h1>
@@ -39,16 +39,44 @@
     <div class="title-name">
       <h4 class="font color magin">รูปภาพ บรรยากาศร้าน & รีวิว</h4>
     </div>
-    <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
-      <ion-row>
-        <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview">
-          <img [src]="item" alt="err" class="imageshop">
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+    <div *ngIf="dataDetail && dataDetail.imagereview && dataDetail.imagereview.length < 6">
+      <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
+        <ion-row>
+          <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview">
+            <img [src]="item" alt="err" class="imageshop">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <div *ngIf="dataDetail && dataDetail.imagereview && dataDetail.imagereview.length > 6">
+      <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
+        <ion-row>
+          <ion-col class="box" size="4" >
+            <img [src]="dataDetail.imagereview[0]" alt="err" class="imageshop">
+          </ion-col>
+          <ion-col class="box" size="4" >
+            <img [src]="dataDetail.imagereview[1]" alt="err" class="imageshop">
+          </ion-col>
+          <ion-col class="box" size="4" >
+            <img [src]="dataDetail.imagereview[2]" alt="err" class="imageshop">
+          </ion-col>
+          <ion-col class="box" size="4" >
+            <img [src]="dataDetail.imagereview[3]" alt="err" class="imageshop">
+          </ion-col>
+          <ion-col class="box" size="4" >
+            <img [src]="dataDetail.imagereview[4]" alt="err" class="imageshop">
+          </ion-col>
+          <ion-col class="box" size="4" >
+            <img [src]="dataDetail.imagereview[5]" alt="err" class="imageshop"   [ngClass]="{'image-opacity': dataDetail.imagereview.length > 6}">
+            <div class="centered">
+            <p class="font-image">+{{dataDetail.imagereview.length - 6}}</p>              
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    
   </div>
-
-
 
   <ion-card class="bg-color" class="style " *ngIf="dataDetail && dataDetail.name && dataDetail.descreiption.title && dataDetail.descreiption.detail">
     <ion-card-header>
