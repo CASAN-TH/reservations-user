@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Prompt');
-.imageshop{
+.imageshop {
     // height: 25px;
     width: 100%;
     object-fit: cover;
-    border-radius: 5px;
+    border-radius: 2vw;
 }
 
-.title{
+.title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 4px;
+    font-size: 5vw;
     font-family: 'Prompt', sans-serif;
 }
