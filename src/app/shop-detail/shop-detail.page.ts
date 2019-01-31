@@ -78,11 +78,11 @@ export class ShopDetailPage implements OnInit {
   }
 
   async openImageIndex(i) {
-    console.log(i);
+    // console.log(i);
     let modal = await this.modalController.create({
       component: ModalOpenimagePage,
       componentProps: {
-        'image': i
+        image: i
       }
     });
     return await modal.present();

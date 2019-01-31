@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { ShopService } from './../../services/shops/shop.service';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-modal-openimage',
@@ -6,10 +9,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-openimage.page.scss'],
 })
 export class ModalOpenimagePage implements OnInit {
-
-  constructor() { }
+  @Input() image: any;
+  
+  @ViewChild('slider', { read: ElementRef })slider: ElementRef;
+  img: any;
+ 
+  sliderOpts = {
+    zoom: {
+      maxRatio: 5
+    }
+  };
+  shopId: any;
+  dataImage: Array<any> = []
+  constructor(
+    private shopService: ShopService,
+    private modalController
+  ) { }
 
   ngOnInit() {
+    this.shopId = window.localStorage.getItem(environment.apiURL + 'shop_id');
+    // let data: any = this.route.snapshot.paramMap.get('i');
+    console.log('shoP' + this.shopId);
+    console.log(this.image);
+    this.getShop();
   }
+  async getShop() {
+    try {
+      let res: any = await this.shopService.getShopById(this.shopId);
+      this.dataImage = res.data.imagereview;
+      console.log(this.dataImage);
+    } catch (error) {
 
+    }
+
+  }
+  zoom(zoomIn: boolean) {
+    let zoom = this.slider.nativeElement.swiper.zoom;
+    if (zoomIn) {
+      zoom.in();
+    } else {
+      zoom.out();
+    }
+  }
+ 
+  close() {
+    this.modalController.dismiss();
+  }
 }
