@@ -52,25 +52,25 @@
     <div *ngIf="dataDetail && dataDetail.imagereview && dataDetail.imagereview.length > 6">
       <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
         <ion-row>
-          <ion-col class="box" size="4">
-            <img [src]="dataDetail.imagereview[0]" alt="err" class="imageshop">
+          <ion-col class="box" size="4" >
+            <img [src]="dataDetail.imagereview[0]" (click)="openImageIndex(0)" alt="err" class="imageshop">
           </ion-col>
           <ion-col class="box" size="4">
-            <img [src]="dataDetail.imagereview[1]" alt="err" class="imageshop">
+            <img [src]="dataDetail.imagereview[1]" (click)="openImageIndex(1)" alt="err" class="imageshop">
           </ion-col>
           <ion-col class="box" size="4">
-            <img [src]="dataDetail.imagereview[2]" alt="err" class="imageshop">
+            <img [src]="dataDetail.imagereview[2]" (click)="openImageIndex(2)" alt="err" class="imageshop">
           </ion-col>
           <ion-col class="box" size="4">
-            <img [src]="dataDetail.imagereview[3]" alt="err" class="imageshop">
+            <img [src]="dataDetail.imagereview[3]" (click)="openImageIndex(3)" alt="err" class="imageshop">
           </ion-col>
           <ion-col class="box" size="4">
-            <img [src]="dataDetail.imagereview[4]" alt="err" class="imageshop">
+            <img [src]="dataDetail.imagereview[4]" (click)="openImageIndex(4)" alt="err" class="imageshop">
           </ion-col>
           <ion-col class="box" size="4">
-            <img [src]="dataDetail.imagereview[5]" alt="err" class="imageshop" [ngClass]="{'image-opacity': dataDetail.imagereview.length > 6}">
-            <div class="centered">
-              <p class="font-image">+{{dataDetail.imagereview.length - 6}}</p>
+            <img [src]="dataDetail.imagereview[5]"  alt="err" class="imageshop" [ngClass]="{'image-opacity': dataDetail.imagereview.length > 6}">
+            <div class="centered" (click)="openImageIndex(5)">
+              <p class="font-image" >+{{dataDetail.imagereview.length - 6}}</p>
             </div>
           </ion-col>
         </ion-row>
