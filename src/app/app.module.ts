@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ShopService } from './services/shops/shop.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ModalOpenimagePageModule } from './modals/modal-openimage/modal-openimage.module';
 
 
 
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule,HttpClientModule
+    AppRoutingModule,HttpClientModule,
+    ModalOpenimagePageModule
   ],
   providers: [
     StatusBar,

@@ -6,7 +6,8 @@ const routes: Routes = [
   { path: 'signin', loadChildren: './pages/signin/signin.module#SigninPageModule' },
   { path: 'shop-detail/:_id', loadChildren: './shop-detail/shop-detail.module#ShopDetailPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-  { path: 'queue-detail', loadChildren: './pages/queue-detail/queue-detail.module#QueueDetailPageModule' },
+  { path: 'queue-detail', loadChildren: './pages/queue-detail/queue-detail.module#QueueDetailPageModule' },  { path: 'modal-openimage', loadChildren: './modals/modal-openimage/modal-openimage.module#ModalOpenimagePageModule' },
+
   
 
   

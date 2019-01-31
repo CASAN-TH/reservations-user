@@ -1,9 +1,10 @@
 
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { ShopService } from '../services/shops/shop.service';
+import { ModalOpenimagePage } from '../modals/modal-openimage/modal-openimage.page';
 
 @Component({
   selector: 'app-shop-detail',
@@ -32,7 +33,8 @@ export class ShopDetailPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public route: ActivatedRoute,
-    public shopService: ShopService
+    public shopService: ShopService,
+    public modalController: ModalController
   ) { }
 
   async ngOnInit() {
@@ -75,8 +77,15 @@ export class ShopDetailPage implements OnInit {
 
   }
 
-  openImageIndex(i) {
+  async openImageIndex(i) {
     console.log(i);
+    let modal = await this.modalController.create({
+      component: ModalOpenimagePage,
+      componentProps: {
+        'image': i
+      }
+    });
+    return await modal.present();
   }
 }
 
