@@ -75,6 +75,8 @@ export class ShopDetailPage implements OnInit {
 
   }
 
-
+  openImageIndex(i) {
+    console.log(i);
+  }
 }
 

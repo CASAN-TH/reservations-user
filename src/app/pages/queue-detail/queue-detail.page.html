@@ -22,7 +22,7 @@
       <ion-item>
         <ion-label class="fs" style="color: rgb(255, 103, 43);">จำนวนคน</ion-label>
         <ion-select [(ngModel)]="people" class="fs" placeholder="กรุณาระบุจำนวน">
-          <ion-select-option class="fs" *ngFor="let item of dataPeople" [value]="item.num">{{item.num}}</ion-select-option>
+          <ion-select-option class="fs" *ngFor="let item of dataPeople" [value]="item">{{item}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-col>

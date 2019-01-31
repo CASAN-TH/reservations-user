@@ -42,8 +42,8 @@
     <div *ngIf="dataDetail && dataDetail.imagereview && dataDetail.imagereview.length < 6">
       <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
         <ion-row>
-          <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview">
-            <img [src]="item" alt="err" class="imageshop">
+          <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview;let i = index">
+            <img [src]="item" alt="err" class="imageshop" (click)="openImageIndex(i)">
           </ion-col>
         </ion-row>
       </ion-grid>
