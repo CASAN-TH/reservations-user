@@ -1,7 +1,8 @@
 import { ShopService } from './../../services/shops/shop.service';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-modal-openimage',
@@ -11,19 +12,21 @@ import { environment } from '../../../environments/environment';
 export class ModalOpenimagePage implements OnInit {
   @Input() image: any;
   
-  @ViewChild('slider', { read: ElementRef })slider: ElementRef;
   img: any;
- 
+
+  @ViewChild('slider', { read: ElementRef })slider: ElementRef;
+
   sliderOpts = {
     zoom: {
-      maxRatio: 5
+      maxRatio: 2
     }
   };
+ 
   shopId: any;
   dataImage: Array<any> = []
   constructor(
     private shopService: ShopService,
-    private modalController
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -41,8 +44,8 @@ export class ModalOpenimagePage implements OnInit {
     } catch (error) {
 
     }
-
   }
+
   zoom(zoomIn: boolean) {
     let zoom = this.slider.nativeElement.swiper.zoom;
     if (zoomIn) {
