@@ -1,6 +1,6 @@
 import { ShopService } from './../../services/shops/shop.service';
 import { ActivatedRoute } from '@angular/router';
-import { Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { ModalController } from '@ionic/angular';
 
@@ -11,17 +11,19 @@ import { ModalController } from '@ionic/angular';
 })
 export class ModalOpenimagePage implements OnInit {
   @Input() image: any;
-  
+  @ViewChild('slider', { read: ElementRef }) slider: ElementRef;
   img: any;
-
-  @ViewChild('slider', { read: ElementRef })slider: ElementRef;
+  index: any;
+  slideOptsOne = {};
 
   sliderOpts = {
     zoom: {
       maxRatio: 2
     }
   };
- 
+
+  
+
   shopId: any;
   dataImage: Array<any> = []
   constructor(
@@ -35,7 +37,18 @@ export class ModalOpenimagePage implements OnInit {
     console.log('shoP' + this.shopId);
     console.log(this.image);
     this.getShop();
+    
+    this.slideOptsOne = {
+      initialSlide: this.image,
+      slidesPerView: 1,
+      autoplay: true,
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'fraction',
+      }
+    };
   }
+
   async getShop() {
     try {
       let res: any = await this.shopService.getShopById(this.shopId);
@@ -54,7 +67,7 @@ export class ModalOpenimagePage implements OnInit {
       zoom.out();
     }
   }
- 
+
   close() {
     this.modalController.dismiss();
   }
