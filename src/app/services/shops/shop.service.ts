@@ -17,10 +17,10 @@ export class ShopService {
   }
 
   getShop() {
-    return this.http.get(environment.apiURL + './api/shoplist').toPromise()
+    return this.http.get(environment.apiURL + '/api/shoplist').toPromise()
   }
   getShopById(_id) {
-    return this.http.get(environment.apiURL + './api/shoplist/' + _id).toPromise()
+    return this.http.get(environment.apiURL + '/api/shoplist/' + _id).toPromise()
   }
 }
 
