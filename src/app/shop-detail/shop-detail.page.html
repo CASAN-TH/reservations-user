@@ -13,13 +13,14 @@
   </div>
 
 
-  <ion-grid class="ion-grid-background" *ngIf="dataDetail && dataDetail.name" class="name-title" >
+  <ion-grid class="ion-grid-background" *ngIf="dataDetail && dataDetail.name" class="name-title" style="background-color: rgba(49, 41, 41, 0.5);">
     <ion-row>
       <ion-col size="6" text-center>
         <h1 class="text-ellipsis">{{dataDetail.name}}</h1>
       </ion-col>
       <ion-col size="6" align-self-center>
-        <ion-badge color="success">เปิดอยู่</ion-badge> <span class="time"> จนถึง {{dataDetail.endtime |date: "shortTime"}}</span>
+        <ion-badge color="success">เปิดอยู่</ion-badge> <span class="time text-ellipsis"> จนถึง {{dataDetail.endtime
+          |date: "shortTime"}}</span>
 
       </ion-col>
     </ion-row>
@@ -28,7 +29,7 @@
   <ion-grid style="background-color: white;">
     <ion-row>
       <ion-col size="6" class="bor" text-center>
-        <ion-label class="font color">รออีก 35 คิว</ion-label>
+        <ion-label class="font color">รออีก {{queueData}} คิว</ion-label>
       </ion-col>
       <ion-col size="6" text-center>
         <ion-label class="font color" (click)="reserv()">จองคิว</ion-label>
@@ -42,7 +43,7 @@
     <div *ngIf="dataDetail && dataDetail.imagereview && dataDetail.imagereview.length < 6">
       <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
         <ion-row>
-          <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview">
+          <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview;let i = index" (click)="openImageIndex(i)">
             <img [src]="item" alt="err" class="imageshop">
           </ion-col>
         </ion-row>
@@ -52,30 +53,30 @@
       <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
         <ion-row>
           <ion-col class="box" size="4" >
-            <img [src]="dataDetail.imagereview[0]" alt="err" class="imageshop">
+            <img [src]="dataDetail.imagereview[0]" (click)="openImageIndex(0)" alt="err" class="imageshop">
           </ion-col>
-          <ion-col class="box" size="4" >
-            <img [src]="dataDetail.imagereview[1]" alt="err" class="imageshop">
+          <ion-col class="box" size="4">
+            <img [src]="dataDetail.imagereview[1]" (click)="openImageIndex(1)" alt="err" class="imageshop">
           </ion-col>
-          <ion-col class="box" size="4" >
-            <img [src]="dataDetail.imagereview[2]" alt="err" class="imageshop">
+          <ion-col class="box" size="4">
+            <img [src]="dataDetail.imagereview[2]" (click)="openImageIndex(2)" alt="err" class="imageshop">
           </ion-col>
-          <ion-col class="box" size="4" >
-            <img [src]="dataDetail.imagereview[3]" alt="err" class="imageshop">
+          <ion-col class="box" size="4">
+            <img [src]="dataDetail.imagereview[3]" (click)="openImageIndex(3)" alt="err" class="imageshop">
           </ion-col>
-          <ion-col class="box" size="4" >
-            <img [src]="dataDetail.imagereview[4]" alt="err" class="imageshop">
+          <ion-col class="box" size="4">
+            <img [src]="dataDetail.imagereview[4]" (click)="openImageIndex(4)" alt="err" class="imageshop">
           </ion-col>
-          <ion-col class="box" size="4" >
-            <img [src]="dataDetail.imagereview[5]" alt="err" class="imageshop"   [ngClass]="{'image-opacity': dataDetail.imagereview.length > 6}">
-            <div class="centered">
-            <p class="font-image">+{{dataDetail.imagereview.length - 6}}</p>              
+          <ion-col class="box" size="4">
+            <img [src]="dataDetail.imagereview[5]"  alt="err" class="imageshop" [ngClass]="{'image-opacity': dataDetail.imagereview.length > 6}">
+            <div class="centered" (click)="openImageIndex(5)">
+              <p class="font-image" >+{{dataDetail.imagereview.length - 6}}</p>
             </div>
           </ion-col>
         </ion-row>
       </ion-grid>
     </div>
-    
+
   </div>
 
   <ion-card class="bg-color" class="style " *ngIf="dataDetail && dataDetail.name && dataDetail.descreiption.title && dataDetail.descreiption.detail">

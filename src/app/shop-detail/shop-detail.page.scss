@@ -174,7 +174,7 @@ ion-card-subtitle {
     text-overflow: ellipsis;
 }
 
-.image-opacity{
+.image-opacity {
     opacity: 0.3;
 }
 
@@ -183,15 +183,18 @@ ion-card-subtitle {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
 }
 
-.centered .font-image{
+.centered .font-image {
     font-size: -webkit-xxx-large;
     font-family: 'Mitr', sans-serif;
-    color:  rgb(255, 103, 43);
+    color: rgb(255, 103, 43);
 }
-.ion-grid-background{
+
+.ion-grid-background {
     background: #00000061;
 }
 
+// h1 {
+//     font-size: 7vw;
+// }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-history',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history.page.scss'],
 })
 export class HistoryPage implements OnInit {
+  
 
-  constructor() { }
+  constructor(
+    public navCtrl: NavController) { }
 
   ngOnInit() {
   }
+  backhome() {
+    this.navCtrl.navigateForward('tabs/tab1');
 
+  }
 }

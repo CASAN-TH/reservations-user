@@ -11,19 +11,8 @@ import { NavController } from '@ionic/angular';
 })
 export class QueueDetailPage implements OnInit {
   people: any;
-  dataPeople: Array<any> = [
-    {
-      num: 1,
-    }, {
-      num: 2,
-    }, {
-      num: 3,
-    }, {
-      num: 4,
-    }, {
-      num: 5,
-    }
-  ]
+  peopleCount: any = 40;
+  dataPeople: Array<any> = []
   data: any;
   dataQueue: any;
   dataUser: any;
@@ -42,7 +31,7 @@ export class QueueDetailPage implements OnInit {
     this.shop_id = shop_id;
     console.log(shop_id)
 
-
+    this.getPeople();
     this.getQueueDetail();
   }
   async getQueueDetail() {
@@ -58,6 +47,12 @@ export class QueueDetailPage implements OnInit {
 
     }
 
+  }
+  getPeople() {
+    for (let i = 0; i < this.peopleCount; i++) {
+      this.dataPeople.push(i + 1);
+    }
+    console.log(this.dataPeople);
   }
   getValue(e) {
     // console.log(e);

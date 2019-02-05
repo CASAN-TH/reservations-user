@@ -6,8 +6,11 @@ const routes: Routes = [
   { path: 'signin', loadChildren: './pages/signin/signin.module#SigninPageModule' },
   { path: 'shop-detail/:_id', loadChildren: './shop-detail/shop-detail.module#ShopDetailPageModule' },
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
-  { path: 'queue-detail', loadChildren: './pages/queue-detail/queue-detail.module#QueueDetailPageModule' },  { path: 'history', loadChildren: './pages/history/history.module#HistoryPageModule' },
+  { path: 'queue-detail', loadChildren: './pages/queue-detail/queue-detail.module#QueueDetailPageModule' },
+  { path: 'history', loadChildren: './pages/history/history.module#HistoryPageModule' },
   { path: 'history-detail', loadChildren: './pages/history-detail/history-detail.module#HistoryDetailPageModule' },
+   { path: 'modal-openimage', loadChildren: './modals/modal-openimage/modal-openimage.module#ModalOpenimagePageModule' },  { path: 'momdal-history-detail', loadChildren: './modals/momdal-history-detail/momdal-history-detail.module#MomdalHistoryDetailPageModule' },
+
 
   
 
