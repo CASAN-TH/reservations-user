@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { ShopService } from './services/shops/shop.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalOpenimagePageModule } from './modals/modal-openimage/modal-openimage.module';
-
+import { HeaderColor } from '@ionic-native/header-color/ngx';
 
 
 
@@ -28,7 +28,8 @@ import { ModalOpenimagePageModule } from './modals/modal-openimage/modal-openima
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    ShopService
+    ShopService,
+    HeaderColor
   ],
   bootstrap: [AppComponent]
 })

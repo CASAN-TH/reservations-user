@@ -2,6 +2,7 @@ import { environment } from 'src/environments/environment';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { HeaderColor } from '@ionic-native/header-color/ngx';
 
 @Component({
   selector: 'app-shop-list',
@@ -16,13 +17,13 @@ export class ShopListComponent implements OnInit {
 
 
   constructor(
-
+    private headerColor: HeaderColor,
     public navCtrl: NavController
   ) {
-
+    this.headerColor.tint('#becb29');
   }
   ngOnInit() {
-
+    this.headerColor.tint('#becb29');
   }
   onDetail(e) {
     window.localStorage.setItem(environment.apiURL + 'shop_id', e);
