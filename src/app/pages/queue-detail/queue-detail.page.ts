@@ -29,7 +29,7 @@ export class QueueDetailPage implements OnInit {
     this.dataUser = user;
     let shop_id = window.localStorage.getItem(environment.apiURL + 'shop_id')
     this.shop_id = shop_id;
-    console.log(shop_id)
+    console.log(this.dataUser);
 
     this.getPeople();
     this.getQueueDetail();
@@ -67,6 +67,7 @@ export class QueueDetailPage implements OnInit {
       let dataSave = {
         peoples: this.people,
         shop_id: this.shop_id,
+        user_id: this.dataUser._id,
         status: true
       }
       let res: any = await this.queueService.saveQueue(dataSave);
