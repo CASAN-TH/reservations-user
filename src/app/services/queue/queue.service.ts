@@ -22,4 +22,5 @@ export class QueueService {
   saveQueue(body) {
     return this.http.post(environment.apiURL + '/api/queues', body, { headers: this.authorizationHeader() }).toPromise();
   }
+
 }
