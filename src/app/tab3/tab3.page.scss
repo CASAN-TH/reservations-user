@@ -1,1 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Fauna+One|Passion+One:700,900');
+ion-header{
+    --ion-toolbar-background:#f1f1f1;
+    --ion-toolbar-border-color: #f1f1f1;
+}
 
+.img{
+    border-radius: 50%;
+}
+
+p{
+    margin: 2px;
+    // font-family: 'Fauna One', serif;
+}
+h1{
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-family: 'Fauna One', serif;
+}
+
+ion-button{
+    width: 55%;
+    height: 28%;
+    --border-color: #5e5e5e;
+    --color: #5e5e5e;
+}
+
+ion-grid{
+    padding: 14px;
+}
+
+ion-list{
+    padding:6px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    --ion-background-color: white;
+    box-shadow: 2px 1px 39px -12px rgba(49, 41, 41, 0.5);
+}
