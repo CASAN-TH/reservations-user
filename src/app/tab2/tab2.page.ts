@@ -13,11 +13,11 @@ export class Tab2Page {
 
   }
   ngOnInit() {
-
+    this.getQueueHis();
   }
 
   async getQueueHis() {
-    let user_id = JSON.parse(window.localStorage.getItem(environment.apiURL+'user'))
+    let user_id = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'))
     // let user_id = ""
     let res: any = await this.queue.getQueueHistory(user_id._id)
     this.queuehistory = res;

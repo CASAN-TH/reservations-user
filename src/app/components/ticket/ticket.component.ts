@@ -6,12 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
-
-  @Input() queue: any;
+  @Input() queue: Array<any>;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.queue);
   }
 
 }
