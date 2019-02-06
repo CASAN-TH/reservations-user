@@ -23,4 +23,8 @@ export class QueueService {
     return this.http.post(environment.apiURL + '/api/queues', body, { headers: this.authorizationHeader() }).toPromise();
   }
 
+  getQueueHistory(userid){
+    return this.http.get(environment.apiURL + '/api/queues-user/'+userid).toPromise()
+  }
+
 }

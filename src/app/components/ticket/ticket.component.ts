@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ticket',
@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TicketComponent implements OnInit {
 
+  @Input() queue: any;
   constructor() { }
 
   ngOnInit() {
+    console.log(this.queue);
   }
 
 }
