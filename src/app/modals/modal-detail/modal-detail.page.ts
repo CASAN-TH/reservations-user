@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { NavController, ModalController } from '@ionic/angular';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-modal-detail',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-detail.page.scss'],
 })
 export class ModalDetailPage implements OnInit {
-
-  constructor() { }
+  @Input() _id: any;
+ 
+  constructor(
+    private modalController: ModalController
+  ) { }
 
   ngOnInit() {
+    console.log(this._id);
   }
-
+  close() {
+    this.modalController.dismiss();
+  
+  }
 }

@@ -12,6 +12,7 @@ import { ShopService } from './services/shops/shop.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ModalOpenimagePageModule } from './modals/modal-openimage/modal-openimage.module';
 import { HeaderColor } from '@ionic-native/header-color/ngx';
+import { ModalDetailPageModule } from './modals/modal-detail/modal-detail.module';
 
 
 
@@ -22,7 +23,8 @@ import { HeaderColor } from '@ionic-native/header-color/ngx';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,HttpClientModule,
-    ModalOpenimagePageModule
+    ModalOpenimagePageModule,
+    ModalDetailPageModule
   ],
   providers: [
     StatusBar,

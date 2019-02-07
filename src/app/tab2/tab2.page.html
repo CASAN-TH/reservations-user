@@ -7,5 +7,5 @@
 </ion-header>
 
 <ion-content>
-  <app-ticket [queue]="queuehistory"></app-ticket>
+  <app-ticket [queuetrue]="queuehistorytrue" [queue]="queuehistory" (_idqueue)="open($event)"></app-ticket>
 </ion-content>
