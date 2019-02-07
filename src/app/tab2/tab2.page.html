@@ -7,5 +7,13 @@
 </ion-header>
 
 <ion-content>
+  <ion-segment [(ngModel)]="segment" (ionChange)="segmentChanged($event)" class="color-sement" mode="ios">
+    <ion-segment-button name="buttonRegister" value="getQueueHisTrue" checked>
+      การจอง
+    </ion-segment-button>
+    <ion-segment-button name="buttonLogin" value="getQueueHis">
+      ประวัติการจอง
+    </ion-segment-button>
+  </ion-segment>
   <app-ticket [queuetrue]="queuehistorytrue" [queue]="queuehistory"></app-ticket>
 </ion-content>

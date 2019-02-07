@@ -1,4 +1,4 @@
-<ion-list *ngIf="queue && queue.data">
+<ion-list *ngIf="queue && queue.data && queue.data.length > 0">
   <ion-item lines="none" *ngFor="let item of queue.data">
     <ion-thumbnail slot="start">
       <img src="https://www.uncledeng.com/wp-content/uploads/2017/10/07-3.jpg">
@@ -7,12 +7,12 @@
       <h1> หมูกระทะร้อน</h1>
       <h3>จำนวน {{item.peoples}} คน</h3>
     </ion-label>
-    <img class="image-seal" src="./assets/img/post-office.png" alt="">
+    <img class="image-seal" src="./assets/out of.svg" alt="">
   </ion-item>
 
 </ion-list>
 
-<ion-list *ngIf="queuetrue && queuetrue.data">
+<ion-list *ngIf="queuetrue && queuetrue.data && queuetrue.data.length > 0">
   <ion-item lines="none" *ngFor="let item of queuetrue.data">
     <ion-thumbnail slot="start">
       <img src="https://www.uncledeng.com/wp-content/uploads/2017/10/07-3.jpg">
@@ -21,7 +21,7 @@
       <h1> หมูกระทะร้อน</h1>
       <h3>จำนวน {{item.peoples}} คน</h3>
     </ion-label>
-    <img class="image-seal" src="./assets/img/post-office.png" alt="">
+
   </ion-item>
 
 </ion-list>
