@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   { path: 'queue-detail', loadChildren: './pages/queue-detail/queue-detail.module#QueueDetailPageModule' },
   { path: 'history', loadChildren: './pages/history/history.module#HistoryPageModule' },
-   { path: 'modal-openimage', loadChildren: './modals/modal-openimage/modal-openimage.module#ModalOpenimagePageModule' },
+   { path: 'modal-openimage', loadChildren: './modals/modal-openimage/modal-openimage.module#ModalOpenimagePageModule' },  { path: 'modal-detail', loadChildren: './modals/modal-detail/modal-detail.module#ModalDetailPageModule' },
+
 
 
   

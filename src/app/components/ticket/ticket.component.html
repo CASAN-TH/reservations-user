@@ -1,5 +1,5 @@
 <ion-list *ngIf="queue && queue.data">
-  <ion-item lines="none" *ngFor="let item of queue.data">
+  <ion-item lines="none" *ngFor="let item of queue.data" (click)="showmodal(item)">
     <ion-thumbnail slot="start">
       <img src="https://www.uncledeng.com/wp-content/uploads/2017/10/07-3.jpg">
     </ion-thumbnail>
@@ -13,7 +13,7 @@
 </ion-list>
 
 <ion-list *ngIf="queuetrue && queuetrue.data">
-  <ion-item lines="none" *ngFor="let item of queuetrue.data">
+  <ion-item lines="none" *ngFor="let item of queuetrue.data" (click)="showmodal(item)">
     <ion-thumbnail slot="start">
       <img src="https://www.uncledeng.com/wp-content/uploads/2017/10/07-3.jpg">
     </ion-thumbnail>

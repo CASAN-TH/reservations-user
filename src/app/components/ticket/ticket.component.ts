@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-ticket',
@@ -8,9 +8,14 @@ import { Component, OnInit, Input } from '@angular/core';
 export class TicketComponent implements OnInit {
   @Input() queue: Array<any>;
   @Input() queuetrue: any;
+  @Output() _idqueue: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
   }
 
+  showmodal(item) {
+    console.log(item);
+    this._idqueue.emit(item._id);
+  }
 }
