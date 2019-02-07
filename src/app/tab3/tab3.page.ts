@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
+  
   dataProfile: any;
   constructor() {
 
@@ -15,6 +16,10 @@ export class Tab3Page {
     let res: any = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'));
     this.dataProfile = res;
     console.log(res);
+  }
+
+  logout(){
+    window.localStorage.clear()
   }
 
 }
