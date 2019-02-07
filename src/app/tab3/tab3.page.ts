@@ -7,7 +7,6 @@ import { environment } from '../../environments/environment';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-
   
   dataProfile: any;
   constructor() {
