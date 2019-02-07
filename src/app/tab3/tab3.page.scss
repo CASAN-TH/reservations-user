@@ -46,7 +46,7 @@ ion-list{
     --background: #FF6969;
     margin-top: 20px !important;
     margin: 10px;
-    box-shadow: 2px 1px 39px -12px rgba(49, 41, 41, 0.5);
+    --background-activated: #686b6f;
 }
 
 .icon-login {
@@ -54,3 +54,12 @@ ion-list{
     right: 13px;
     font-size: 34px;
 }
+
+ion-badge{
+    right: 15px;
+    z-index: 1;
+    bottom: 9px;
+    position: absolute;
+    box-shadow: -2px 5px 8px 0px #a42d2d;
+}
+
