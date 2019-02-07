@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { QueueService } from '../services/queue/queue.service';
 import { environment } from 'src/environments/environment.prod';
+import { ModalController } from '@ionic/angular';
+import { ModalDetailPage } from '../modals/modal-detail/modal-detail.page';
 
 @Component({
   selector: 'app-tab2',
@@ -13,7 +15,9 @@ export class Tab2Page {
   user_id: any;
   queuehistory: any;
   queuehistorytrue: any;
-  constructor(public queue: QueueService) {
+  constructor(
+    public queue: QueueService,
+    public modalController: ModalController) {
 
   }
 
@@ -22,6 +26,7 @@ export class Tab2Page {
 
     // this.getQueueHis();
     this.getQueueHisTrue();
+   
   }
 
   segmentChanged(ev: any) {
@@ -50,5 +55,14 @@ export class Tab2Page {
     let res: any = await this.queue.getQueueHistoryTrue(this.user_id._id);
     this.queuehistorytrue = res
     console.log(this.queuehistorytrue);
+  }
+  async open(event){
+    const modal = await this.modalController.create({
+      component:  ModalDetailPage,
+      componentProps: { _id : event }
+    });
+    return await modal.present();
+  
+console.log(event);
   }
 }

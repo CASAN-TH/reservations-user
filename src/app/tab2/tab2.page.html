@@ -15,5 +15,5 @@
       ประวัติการจอง
     </ion-segment-button>
   </ion-segment>
-  <app-ticket [queuetrue]="queuehistorytrue" [queue]="queuehistory"></app-ticket>
+  <app-ticket [queuetrue]="queuehistorytrue" [queue]="queuehistory" (_idqueue)="open($event)"></app-ticket>
 </ion-content>
