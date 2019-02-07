@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-tab3',
@@ -7,11 +8,19 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  ngOnInit(){
+  
+  dataProfile: any;
+  constructor() {
 
+  }
+  ngOnInit() {
+    let res: any = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'));
+    this.dataProfile = res;
+    console.log(res);
   }
 
   logout(){
     window.localStorage.clear()
   }
+
 }
