@@ -6,7 +6,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./ticket.component.scss']
 })
 export class TicketComponent implements OnInit {
-  @Input() queue: Array<any>;
+  @Input() queue: any;
   @Input() queuetrue: any;
   @Output() _idqueue: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
