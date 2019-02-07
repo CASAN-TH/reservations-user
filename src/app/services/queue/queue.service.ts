@@ -26,5 +26,7 @@ export class QueueService {
   getQueueHistory(userid){
     return this.http.get(environment.apiURL + '/api/queues-user/'+userid).toPromise()
   }
-
+  getQueueHistoryTrue(userid){
+    return this.http.get(environment.apiURL + '/api/queues-usertrue/'+userid).toPromise()
+  }
 }
