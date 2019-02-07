@@ -10,6 +10,8 @@ import { ModalDetailPage } from '../modals/modal-detail/modal-detail.page';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
+  delay: Boolean = true;
+
   user_id: any;
   queuehistory: any;
   queuehistorytrue: any;
@@ -18,14 +20,31 @@ export class Tab2Page {
     public modalController: ModalController) {
 
   }
+
   ngOnInit() {
     this.user_id = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'))
 
-    this.getQueueHis();
+    // this.getQueueHis();
     this.getQueueHisTrue();
    
   }
 
+  segmentChanged(ev: any) {
+    console.log(ev)
+    if (ev.detail.value == 'getQueueHis') {
+      console.log(ev)
+      this.queuehistory = [];
+      this.queuehistorytrue = [];
+
+      this.getQueueHis();
+    } else if (ev.detail.value == 'getQueueHisTrue') {
+      console.log(ev)
+      this.queuehistory = [];
+
+      this.queuehistorytrue = [];
+      this.getQueueHisTrue();
+    }
+  }
   async getQueueHis() {
     // let user_id = ""
     let res: any = await this.queue.getQueueHistory(this.user_id._id);
@@ -35,6 +54,7 @@ export class Tab2Page {
   async getQueueHisTrue() {
     let res: any = await this.queue.getQueueHistoryTrue(this.user_id._id);
     this.queuehistorytrue = res
+    console.log(this.queuehistorytrue);
   }
   async open(event){
     const modal = await this.modalController.create({
