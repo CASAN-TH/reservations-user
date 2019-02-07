@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TicketComponent implements OnInit {
   @Input() queue: Array<any>;
+  @Input() queuetrue: any;
   constructor() { }
 
   ngOnInit() {
