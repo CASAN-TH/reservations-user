@@ -12,4 +12,7 @@ export class TicketComponent implements OnInit {
   ngOnInit() {
   }
 
+showmodal(item){
+console.log(item);
+}
 }
