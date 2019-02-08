@@ -42,7 +42,14 @@ export class SigninPage implements OnInit {
       await this.loading.dismissOnPageChange();
       this.navCtrl.navigateForward("queue-detail");
     } catch (error) {
+      console.log(error);
       this.loading.dismissOnPageChange();
+      if (error) {
+        if (error.error.message == 'Username or Password is invalid.') {
+          let dataError = 'Username หรือ Password ไม่ถูกต้อง'
+          await this.loading.presentToastWithOptions(dataError);
+        }
+      }
     }
 
 
