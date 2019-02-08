@@ -3,7 +3,7 @@ import { QueueService } from '../services/queue/queue.service';
 import { environment } from 'src/environments/environment.prod';
 import { ModalController } from '@ionic/angular';
 import { ModalDetailPage } from '../modals/modal-detail/modal-detail.page';
-import { ClassField } from '@angular/compiler';
+import { LoadingService } from '../services/loading/loading.service';
 
 @Component({
   selector: 'app-tab2',
@@ -19,7 +19,9 @@ export class Tab2Page {
   queuehistorytrue: any;
   constructor(
     public queue: QueueService,
-    public modalController: ModalController) {
+    public modalController: ModalController,
+    public loading: LoadingService
+  ) {
 
   }
 
@@ -43,7 +45,6 @@ export class Tab2Page {
       console.log(ev)
       this.queuehistory = [];
       this.queuehistorytrue = [];
-
       this.getQueueHis();
     } else if (ev.detail.value == 'getQueueHisTrue') {
       console.log(ev)
@@ -54,20 +55,35 @@ export class Tab2Page {
     }
   }
   async getQueueHis() {
-    // let user_id = ""
     if (this.token) {
-      let res: any = await this.queue.getQueueHistory(this.user_id._id);
-      this.queuehistory = res;
-      console.log(this.queuehistory)
+      await this.loading.presentLoadingWithOptions();
+      try {
+        let res: any = await this.queue.getQueueHistory(this.user_id._id);
+        this.queuehistory = res;
+        await this.loading.dismissOnPageChange();
+
+      } catch (error) {
+        await this.loading.dismissOnPageChange();
+
+      }
     }
 
+    // let user_id = ""
   }
   async getQueueHisTrue() {
     if (this.token) {
-      let res: any = await this.queue.getQueueHistoryTrue(this.user_id._id);
-      this.queuehistorytrue = res
-      console.log(this.queuehistorytrue);
+      await this.loading.presentLoadingWithOptions();
+      try {
+        let res: any = await this.queue.getQueueHistoryTrue(this.user_id._id);
+        this.queuehistorytrue = res
+        console.log(this.queuehistorytrue);
+        await this.loading.dismissOnPageChange();
+
+      } catch (error) {
+
+      }
     }
+
 
   }
   async open(event) {
@@ -76,7 +92,5 @@ export class Tab2Page {
       componentProps: { _id: event }
     });
     return await modal.present();
-
-    console.log(event);
   }
 }
