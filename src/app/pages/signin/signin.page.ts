@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { environment } from 'src/environments/environment';
+import { LoadingService } from '../../services/loading/loading.service';
 
 @Component({
   selector: 'app-signin',
@@ -12,7 +13,8 @@ export class SigninPage implements OnInit {
 
   constructor(
     public navCtrl: NavController,
-    public authService: AuthService
+    public authService: AuthService,
+    public loading: LoadingService
   ) { }
 
   username: any = '';
@@ -22,6 +24,7 @@ export class SigninPage implements OnInit {
   ngOnInit() {
   }
   async confirm() {
+    await this.loading.presentLoadingWithOptions();
     try {
       let body = {
         username: this.username,
@@ -36,9 +39,10 @@ export class SigninPage implements OnInit {
         console.log(me)
         window.localStorage.setItem(environment.apiURL + 'user', JSON.stringify(me.data));
       }
+      await this.loading.dismissOnPageChange();
       this.navCtrl.navigateForward("queue-detail");
     } catch (error) {
-
+      this.loading.dismissOnPageChange();
     }
 
 
