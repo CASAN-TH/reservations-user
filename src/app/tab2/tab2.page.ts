@@ -3,6 +3,7 @@ import { QueueService } from '../services/queue/queue.service';
 import { environment } from 'src/environments/environment.prod';
 import { ModalController } from '@ionic/angular';
 import { ModalDetailPage } from '../modals/modal-detail/modal-detail.page';
+import { ClassField } from '@angular/compiler';
 
 @Component({
   selector: 'app-tab2',
@@ -13,6 +14,7 @@ export class Tab2Page {
   delay: Boolean = true;
 
   user_id: any;
+  token: any;
   queuehistory: any;
   queuehistorytrue: any;
   constructor(
@@ -21,12 +23,18 @@ export class Tab2Page {
 
   }
 
+  ionViewWillEnter() {
+    this.token = window.localStorage.getItem(environment.apiURL + '@token');
+    console.log(this.token)
+    this.user_id = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'))
+    this.getQueueHisTrue();
+  }
+
   ngOnInit() {
     this.user_id = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'))
-
     // this.getQueueHis();
     this.getQueueHisTrue();
-   
+
   }
 
   segmentChanged(ev: any) {
@@ -47,22 +55,28 @@ export class Tab2Page {
   }
   async getQueueHis() {
     // let user_id = ""
-    let res: any = await this.queue.getQueueHistory(this.user_id._id);
-    this.queuehistory = res;
-    console.log(this.queuehistory)
+    if (this.token) {
+      let res: any = await this.queue.getQueueHistory(this.user_id._id);
+      this.queuehistory = res;
+      console.log(this.queuehistory)
+    }
+
   }
   async getQueueHisTrue() {
-    let res: any = await this.queue.getQueueHistoryTrue(this.user_id._id);
-    this.queuehistorytrue = res
-    console.log(this.queuehistorytrue);
+    if (this.token) {
+      let res: any = await this.queue.getQueueHistoryTrue(this.user_id._id);
+      this.queuehistorytrue = res
+      console.log(this.queuehistorytrue);
+    }
+
   }
-  async open(event){
+  async open(event) {
     const modal = await this.modalController.create({
-      component:  ModalDetailPage,
-      componentProps: { _id : event }
+      component: ModalDetailPage,
+      componentProps: { _id: event }
     });
     return await modal.present();
-  
-console.log(event);
+
+    console.log(event);
   }
 }
