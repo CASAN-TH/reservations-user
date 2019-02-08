@@ -1,5 +1,5 @@
 <ion-content padding>
-
+  <!-- 
   <ion-list>
 
     <ion-img class="img" src="https://res.cloudinary.com/dyiuidzsc/image/upload/v1548315412/Mookata/mookata-Logo.png"></ion-img>
@@ -37,10 +37,46 @@
 
       <span class="font" >  Login with Facebook </span>
     </ion-button>
-  
-  <ion-button class="imgsingup" mode="ios" shape="round" (click)="singup()" expand="full">sing up now </ion-button>
+   -->
 
 
+
+  <h1 style="margin: 20px;">Log In</h1>
+  <ion-list>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-icon mode="ios" style="font-size: 30px" name="person"></ion-icon>
+      </ion-avatar>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-avatar slot="start">
+        <ion-icon style="font-size: 30px" name="keypad"></ion-icon>
+      </ion-avatar>
+      <ion-label position="floating">password</ion-label>
+      <ion-input [(ngModel)]="password" type="password" id="pass" name="password" minlength="8"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button class="btn-login" [disabled]="!username||!password" mode="ios" expand="full" shape="round" (click)="confirm()">LOG
+    IN
+    <ion-icon class="icon-login" name="arrow-dropright-circle"></ion-icon>
+  </ion-button>
+
+
+<!-- 
+  <ion-button style="width: 13%; border-radius: 50%;" mode="ios" shape="round" expand="full">
+    <span>
+      <ion-icon name="logo-facebook"></ion-icon>
+    </span>
+
+    <span class="font"> Login with Facebook </span>
+  </ion-button> -->
+  <div class="mg-regis" style="text-align: center;">
+    <p class="font-gray"> Don't have an account? Swipe right to <span (click)="singup()" class="font-red">create
+        a new account</span></p>
+
+  </div>
 
 
 </ion-content>

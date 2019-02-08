@@ -5,37 +5,83 @@
     margin-right: auto;
     margin-top: 10px;
 }
+
 .center {
-    display: table-cell;
-    // height: calc(96vh - 145px);
+    display: table-cell; // height: calc(96vh - 145px);
     height: 95vh;
     text-align: center;
     width: 100vw;
     vertical-align: middle;
 }
+
 .button {
     cursor: pointer;
     outline: none;
     border: none;
     margin-top: 50px;
-   
-  }
-  .imgfacebook {
+}
+
+.imgfacebook {
     display: center;
     margin-left: auto;
     margin-right: auto;
     --background: rgb(76, 15, 247);
     margin-top: 10px;
-  
-  }
-  .imgsingup {
+}
+
+.imgsingup {
     display: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10px;
     --background: rgb(156, 199, 248);
     font-size: 18px;
-  }
-  .font{
-    font-size:18px;
-  } 
+}
+
+.font {
+    font-size: 18px;
+}
+
+ion-list {
+    padding: 6px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    --ion-background-color: white;
+    box-shadow: 2px 1px 39px -12px rgba(49, 41, 41, 0.5);
+}
+
+.btn-facebook {
+    margin-top: 20px !important;
+    margin: 10px;
+}
+
+.btn-login {
+    --background: #FF6969;
+    margin-top: 20px !important;
+    margin: 10px;
+    --background-activated: #ffdada;
+}
+
+.icon-login {
+    position: absolute;
+    right: 13px;
+    font-size: 34px;
+}
+
+ion-label {
+    margin-top: 0px;
+}
+
+.mg-regis {
+    margin: 40px;
+    margin-top: 75px;
+}
+
+.font-gray {
+    color: grey;
+}
+
+.font-red {
+    color: #ef9696;
+}

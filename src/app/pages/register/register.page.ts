@@ -35,20 +35,14 @@ export class RegisterPage implements OnInit {
       await this.loading.dismissOnPageChange();
       this.navCtrl.navigateForward('queue-detail');
     } catch (error) {
-      console.log(error);
       await this.loading.dismissOnPageChange();
-
-      // if (error) {
-      //   if (error['error']['message'] === 'Email already exists') {
-      //     alert('อีเมล์นี้มีผู้ใช้งานแล้ว');
-      //   } else if (error['error']['message'] === 'Username already exists') {
-      //     alert('มีชื่อผู้ใช้งานนี้ในระบบเเล้ว');
-      //   } else if (error['error']['message'] === 'Citizenid already exists') {
-      //     alert('เลขบัตรประจำประชาชนมีผู้ใช้งานแล้ว');
-      //   } else if (error['error']['message'] === 'Please fill a valid email address') {
-      //     alert('อีเมล์ไม่ถูกต้อง');
-      //   }
-      // }
+      if (error) {
+        if (error.error.message === '11000 duplicate key error collection: auth.users index: username already exists') {
+          await this.loading.presentToastWithOptions('Username ซ้ำ')
+        } else if (error.error.message === '11000 duplicate key error collection: auth.users index: email already exists') {
+          await this.loading.presentToastWithOptions('อีเมลนี้มีผู้ใช้งานแล้ว')
+        }
+      }
     }
   }
   cancel() {
