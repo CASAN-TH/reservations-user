@@ -69,3 +69,15 @@ ion-badge{
     box-shadow: -2px 5px 8px 0px #a42d2d;
 }
 
+.a {
+    white-space: nowrap; 
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   
+    }
+.b{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

@@ -26,8 +26,8 @@
         <img class="img" src="{{dataProfile.profileImageURL}}" alt="err">
       </ion-col>
       <ion-col size="8">
-        <h1>{{dataProfile.firstname}} {{dataProfile.lastname}}</h1>
-        <p>{{dataProfile.email}}</p>
+        <h1 class="b">{{dataProfile.firstname}} {{dataProfile.lastname}}</h1>
+        <p class="a">{{dataProfile.email}}</p>
         <ion-button *ngIf="dataToken" class="button-chang-img" shape="round" fill="outline">EDIT PROFILE</ion-button>
       </ion-col>
     </ion-row>
