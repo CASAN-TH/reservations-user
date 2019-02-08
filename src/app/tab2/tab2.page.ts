@@ -14,6 +14,7 @@ export class Tab2Page {
   delay: Boolean = true;
 
   user_id: any;
+  token: any;
   queuehistory: any;
   queuehistorytrue: any;
   constructor(
@@ -24,9 +25,15 @@ export class Tab2Page {
 
   }
 
+  ionViewWillEnter() {
+    this.token = window.localStorage.getItem(environment.apiURL + '@token');
+    console.log(this.token)
+    this.user_id = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'))
+    this.getQueueHisTrue();
+  }
+
   ngOnInit() {
     this.user_id = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'))
-
     // this.getQueueHis();
     this.getQueueHisTrue();
 
@@ -48,29 +55,33 @@ export class Tab2Page {
     }
   }
   async getQueueHis() {
-    await this.loading.presentLoadingWithOptions();
-    try {
-      let res: any = await this.queue.getQueueHistory(this.user_id._id);
-      this.queuehistory = res;
-      await this.loading.dismissOnPageChange();
+    if (this.token) {
+      await this.loading.presentLoadingWithOptions();
+      try {
+        let res: any = await this.queue.getQueueHistory(this.user_id._id);
+        this.queuehistory = res;
+        await this.loading.dismissOnPageChange();
 
-    } catch (error) {
-      await this.loading.dismissOnPageChange();
+      } catch (error) {
+        await this.loading.dismissOnPageChange();
 
+      }
     }
+
     // let user_id = ""
   }
   async getQueueHisTrue() {
-    await this.loading.presentLoadingWithOptions();
-    try {
-      let res: any = await this.queue.getQueueHistoryTrue(this.user_id._id);
-      this.queuehistorytrue = res
-      console.log(this.queuehistorytrue);
-      await this.loading.dismissOnPageChange();
+    if (this.token) {
+      await this.loading.presentLoadingWithOptions();
+      try {
+        let res: any = await this.queue.getQueueHistoryTrue(this.user_id._id);
+        this.queuehistorytrue = res
+        console.log(this.queuehistorytrue);
+        await this.loading.dismissOnPageChange();
 
-    } catch (error) {
-      // await this.loading.dismissOnPageChange();
+      } catch (error) {
 
+      }
     }
 
 
