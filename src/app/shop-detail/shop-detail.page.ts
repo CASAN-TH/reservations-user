@@ -49,14 +49,14 @@ export class ShopDetailPage implements OnInit {
 
   }
   async getDetail() {
-    this.loading.presentLoadingWithOptions();
+    await this.loading.presentLoadingWithOptions();
     try {
       const res: any = await this.shopService.getShopById(this.requestShoplist);
       this.dataDetail = res.data;
       console.log(this.dataDetail);
-      this.loading.dismissOnPageChange()
+      await this.loading.dismissOnPageChange()
     } catch (error) {
-      this.loading.dismissOnPageChange()
+      await  this.loading.dismissOnPageChange()
     }
 
   }
