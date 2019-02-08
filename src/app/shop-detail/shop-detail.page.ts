@@ -1,3 +1,4 @@
+import { LoadingService } from './../services/loading/loading.service';
 import { QueueService } from './../services/queue/queue.service';
 
 import { Component, OnInit } from '@angular/core';
@@ -26,7 +27,8 @@ export class ShopDetailPage implements OnInit {
     public shopService: ShopService,
     public modalController: ModalController,
     private queueService: QueueService,
-    private headerColor: HeaderColor
+    private headerColor: HeaderColor,
+    public loading: LoadingService
   ) { }
 
   async ngOnInit() {
@@ -47,13 +49,14 @@ export class ShopDetailPage implements OnInit {
 
   }
   async getDetail() {
+    this.loading.presentLoadingWithOptions();
     try {
       const res: any = await this.shopService.getShopById(this.requestShoplist);
       this.dataDetail = res.data;
       console.log(this.dataDetail);
-
+      this.loading.dismissOnPageChange()
     } catch (error) {
-
+      this.loading.dismissOnPageChange()
     }
 
   }
