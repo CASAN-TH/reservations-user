@@ -40,7 +40,7 @@ export class SigninPage implements OnInit {
         window.localStorage.setItem(environment.apiURL + 'user', JSON.stringify(me.data));
       }
       await this.loading.dismissOnPageChange();
-      this.navCtrl.navigateForward("queue-detail");
+      this.navCtrl.navigateBack('');
     } catch (error) {
       console.log(error);
       this.loading.dismissOnPageChange();

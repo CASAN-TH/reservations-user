@@ -1,26 +1,26 @@
 <ion-header>
   <ion-toolbar>
-      <ion-badge slot="end" color="danger">6</ion-badge>
-    <ion-icon slot="end" style="font-size:30px;" src="./assets/icon/noti.svg"></ion-icon>
+    <ion-badge *ngIf="dataToken && dataProfile" slot="end" color="danger">6</ion-badge>
+    <ion-icon *ngIf="dataToken && dataProfile" slot="end" style="font-size:30px;" src="./assets/icon/noti.svg"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-grid fixed *ngIf="!dataProfile"> 
+  <ion-grid fixed *ngIf="!dataToken && !dataProfile">
     <ion-row>
       <ion-col size="4">
-        <img class="img" src="http://incargo.md/wp-content/uploads/2018/01/Oleg_K.jpg" alt="err">
+        <img class="img" src="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg"
+          alt="err">
       </ion-col>
       <ion-col size="8">
-        <h1>Amonrat Cha</h1>
-        <p>amonrat.cha@northbkk.ac.th</p>
-        <ion-button class="button-chang-img" shape="round" fill="outline">EDIT PROFILE</ion-button>
+        <h1>Name</h1>
+        <p>example@hotmail.com</p>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-grid fixed *ngIf="dataProfile">
+  <ion-grid fixed *ngIf="dataToken && dataProfile">
     <ion-row>
       <ion-col size="4">
         <img class="img" src="{{dataProfile.profileImageURL}}" alt="err">
@@ -28,12 +28,12 @@
       <ion-col size="8">
         <h1>{{dataProfile.firstname}} {{dataProfile.lastname}}</h1>
         <p>{{dataProfile.email}}</p>
-        <ion-button class="button-chang-img" shape="round" fill="outline">EDIT PROFILE</ion-button>
+        <ion-button *ngIf="dataToken" class="button-chang-img" shape="round" fill="outline">EDIT PROFILE</ion-button>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-list>
+  <ion-list *ngIf="dataToken && dataProfile">
     <ion-item>
       <ion-avatar slot="start">
         <ion-icon mode="ios" style="font-size: 30px" name="person"></ion-icon>
@@ -57,9 +57,14 @@
     </ion-item>
   </ion-list>
 
-  <ion-button class="btn-login" mode="ios" expand="full" shape="round" (click)="logout()">
+  <ion-button *ngIf="dataToken" class="btn-login" mode="ios" expand="full" shape="round" (click)="logout()">
     LOG OUT
     <ion-icon class="icon-login" name="arrow-dropright-circle"></ion-icon>
   </ion-button>
 
+
+  <ion-button *ngIf="!dataToken" class="btn-login" mode="ios" expand="full" shape="round" (click)="login()">
+    LOG IN
+    <ion-icon class="icon-login" name="arrow-dropright-circle"></ion-icon>
+  </ion-button>
 </ion-content>
