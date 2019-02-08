@@ -12,6 +12,12 @@ export class Tab3Page {
   constructor() {
 
   }
+
+  ionViewWillEnter(){
+    let res: any = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'));
+    this.dataProfile = res;
+    console.log(res);
+  }
   ngOnInit() {
     let res: any = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'));
     this.dataProfile = res;

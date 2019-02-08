@@ -30,6 +30,12 @@ export class Tab2Page {
     console.log(this.token)
     this.user_id = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'))
     this.getQueueHisTrue();
+    if (this.token === null) {
+      this.queuehistory = [];
+      this.queuehistorytrue = [];
+      this.getQueueHisTrue();
+      this.getQueueHis();
+    }
   }
 
   ngOnInit() {
@@ -49,7 +55,6 @@ export class Tab2Page {
     } else if (ev.detail.value == 'getQueueHisTrue') {
       console.log(ev)
       this.queuehistory = [];
-
       this.queuehistorytrue = [];
       this.getQueueHisTrue();
     }
@@ -67,8 +72,6 @@ export class Tab2Page {
 
       }
     }
-
-    // let user_id = ""
   }
   async getQueueHisTrue() {
     if (this.token) {
@@ -83,9 +86,8 @@ export class Tab2Page {
 
       }
     }
-
-
   }
+
   async open(event) {
     const modal = await this.modalController.create({
       component: ModalDetailPage,
