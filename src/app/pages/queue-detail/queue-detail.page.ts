@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { QueueService } from '../../services/queue/queue.service';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
+import { LoadingService } from '../../services/loading/loading.service';
 
 @Component({
   selector: 'app-queue-detail',
@@ -21,7 +22,8 @@ export class QueueDetailPage implements OnInit {
   constructor(
     public route: ActivatedRoute,
     public queueService: QueueService,
-    public navCrtl: NavController
+    public navCrtl: NavController,
+    public loading: LoadingService
   ) { }
 
   ngOnInit() {
@@ -30,11 +32,12 @@ export class QueueDetailPage implements OnInit {
     let shop_id = window.localStorage.getItem(environment.apiURL + 'shop_id')
     this.shop_id = shop_id;
     console.log(this.dataUser);
-
     this.getPeople();
     this.getQueueDetail();
+
   }
   async getQueueDetail() {
+    this.loading.presentLoadingWithOptions();
     try {
       let data = {
         _id: this.shop_id,
@@ -42,9 +45,9 @@ export class QueueDetailPage implements OnInit {
       }
       let res: any = await this.queueService.getQueue(data);
       this.dataQueue = res.data;
-      console.log(res);
+      this.loading.dismissOnPageChange();
     } catch (error) {
-
+      this.loading.dismissOnPageChange();
     }
 
   }
@@ -60,9 +63,7 @@ export class QueueDetailPage implements OnInit {
     console.log(this.people);
   }
   async confirm() {
-    console.log(this.people);
-    // this.getValue(e);
-    // console.log(this.peoples);
+    this.loading.presentLoadingWithOptions();
     try {
       let dataSave = {
         peoples: this.people,
@@ -71,9 +72,10 @@ export class QueueDetailPage implements OnInit {
         status: true
       }
       let res: any = await this.queueService.saveQueue(dataSave);
+      this.loading.dismissOnPageChange()
       this.navCrtl.navigateForward('');
     } catch (error) {
-      alert(error)
+      this.loading.dismissOnPageChange()
     }
 
   }

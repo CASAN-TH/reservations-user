@@ -1,3 +1,4 @@
+import { LoadingService } from './../services/loading/loading.service';
 import { Component } from '@angular/core';
 import { ShopService } from '../services/shops/shop.service';
 
@@ -8,16 +9,27 @@ import { ShopService } from '../services/shops/shop.service';
 })
 export class Tab1Page {
 
-  shopdata:any;
-  constructor(public shoplist:ShopService){
+  shopdata: any;
+  constructor(
+    public shoplist: ShopService,
+    public loading: LoadingService
+  ) {
 
   }
-  ngOnInit(){
+  ngOnInit() {
     this.getShoplist();
   }
 
- async getShoplist(){
-    this.shopdata = await this.shoplist.getShop();
-    console.log(this.shopdata)
+  async getShoplist() {
+    this.loading.presentLoadingWithOptions();
+    try {
+      this.shopdata = await this.shoplist.getShop();
+      console.log(this.shopdata)
+      this.loading.dismissOnPageChange();
+    } catch (error) {
+      this.loading.dismissOnPageChange();
+    }
+
+
   }
 }
