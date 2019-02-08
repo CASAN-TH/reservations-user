@@ -48,12 +48,22 @@ export class LoadingService {
       message: 'กำลังโหลด...',
       translucent: true,
       cssClass: 'custom-class custom-loading',
-      mode:'ios'
-      
+      mode: 'ios'
+
     });
     return await loading.present();
   }
   async dismissOnPageChange() {
-    return  await this.loadingController.dismiss();
+    return await this.loadingController.dismiss();
+  }
+  async presentToastWithOptions(err) {
+    const toast = await this.toastController.create({
+      message: err,
+      duration: 3000,
+      position: 'bottom',
+      mode: 'ios',
+      color:'danger'
+    });
+    toast.present();
   }
 }
