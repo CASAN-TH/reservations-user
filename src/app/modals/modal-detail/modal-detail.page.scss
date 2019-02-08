@@ -2,16 +2,14 @@
     text-align: center;
     font-size: 25px;
     font-weight: bold;
+    margin-bottom: 28px;
+    margin-top: 15px;
 }
-.box
-{
-    border-radius: 5px;
-}
+
 .box2
 {
-    border-radius: 5px;
-    background-color: white
-
+    background-color: white;
+   
 }
 .textma
 {
@@ -20,5 +18,32 @@
 .icon{
     position: absolute;
     right: 0px;
-    top: 6px;
+    top: -5px;
+    color: goldenrod;
+    width: 11%;
+    height: 2px;
+ 
+    font-size: 33px;
+   
 }
+.r{
+    border-top-left-radius: 1px;
+    border-top-right-radius: 2px;
+}
+.div {
+    border: 5px solid rgb(250, 177, 43);
+    position: absolute;
+    top:294px;
+    right: -10px;
+    left: -10px;
+  }
+  .img
+  {
+    position: absolute;
+    
+    
+  }
+  .box3{
+    border: 5px solid rgb(250, 177, 43);
+  }
+  
