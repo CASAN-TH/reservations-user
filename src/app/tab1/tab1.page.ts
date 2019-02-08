@@ -21,13 +21,13 @@ export class Tab1Page {
   }
 
   async getShoplist() {
-    this.loading.presentLoadingWithOptions();
+    await this.loading.presentLoadingWithOptions();
     try {
       this.shopdata = await this.shoplist.getShop();
       console.log(this.shopdata)
-      this.loading.dismissOnPageChange();
+      await this.loading.dismissOnPageChange();
     } catch (error) {
-      this.loading.dismissOnPageChange();
+      await this.loading.dismissOnPageChange();
     }
 
 

@@ -37,7 +37,7 @@ export class QueueDetailPage implements OnInit {
 
   }
   async getQueueDetail() {
-    this.loading.presentLoadingWithOptions();
+    await this.loading.presentLoadingWithOptions();
     try {
       let data = {
         _id: this.shop_id,
@@ -45,9 +45,9 @@ export class QueueDetailPage implements OnInit {
       }
       let res: any = await this.queueService.getQueue(data);
       this.dataQueue = res.data;
-      this.loading.dismissOnPageChange();
+      await  this.loading.dismissOnPageChange();
     } catch (error) {
-      this.loading.dismissOnPageChange();
+      await  this.loading.dismissOnPageChange();
     }
 
   }
@@ -63,7 +63,7 @@ export class QueueDetailPage implements OnInit {
     console.log(this.people);
   }
   async confirm() {
-    this.loading.presentLoadingWithOptions();
+    await this.loading.presentLoadingWithOptions();
     try {
       let dataSave = {
         peoples: this.people,
