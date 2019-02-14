@@ -41,6 +41,8 @@ export class RegisterPage implements OnInit {
           await this.loading.presentToastWithOptions('Username ซ้ำ')
         } else if (error.error.message === '11000 duplicate key error collection: auth.users index: email already exists') {
           await this.loading.presentToastWithOptions('อีเมลนี้มีผู้ใช้งานแล้ว')
+        } else if (error.error.message === 'Please fill a valid email address') {
+          await this.loading.presentToastWithOptions('อีเมลไม่ถูกต้องกรุณาลองใหม่อีกครั้ง')
         }
       }
     }
