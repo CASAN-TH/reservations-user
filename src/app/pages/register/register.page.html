@@ -29,7 +29,7 @@
   <ion-col size="12">
     <ion-row>
       <ion-col size="6">
-        <ion-button mode="ios" [disabled]="!regisData.username||regisData.password||regisData.firstname||regisData.lastname||regisData.email"
+        <ion-button mode="ios" [disabled]="!regisData.username|| !regisData.password||!regisData.firstname||!regisData.lastname||!regisData.email"
           expand="full" shape="round" (click)="confirm()">ยันยัน</ion-button>
 
       </ion-col>
