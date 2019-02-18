@@ -21,6 +21,7 @@ export class ShopDetailPage implements OnInit {
   requestShoplist: string;
   authService: any;
   queueData: any;
+  date = '12.00';
   constructor(
     public navCtrl: NavController,
     public route: ActivatedRoute,
@@ -29,7 +30,18 @@ export class ShopDetailPage implements OnInit {
     private queueService: QueueService,
     private headerColor: HeaderColor,
     public loading: LoadingService
-  ) { }
+  ) {
+    let newDate = new Date();
+    let hours = newDate.getHours();
+    let minutes = newDate.getMinutes();
+    let newTime = hours + ':' + minutes;
+    console.log(newTime);
+    if (this.date > newTime) {
+      console.log('มากกว่า')
+    } else if (this.date < newTime) {
+      console.log('ไม่ถูก')
+    }
+  }
 
   async ngOnInit() {
     this.headerColor.tint('#becb29');
