@@ -13,14 +13,15 @@
   </div>
 
 
-  <ion-grid class="ion-grid-background" *ngIf="dataDetail && dataDetail.name" class="name-title" style="background-color: rgba(49, 41, 41, 0.5);">
+  <ion-grid class="ion-grid-background" *ngIf="dataDetail && dataDetail.name" class="name-title"
+    style="background-color: rgba(49, 41, 41, 0.5);">
     <ion-row>
       <ion-col size="6" text-center>
         <h1 class="text-ellipsis">{{dataDetail.name}}</h1>
       </ion-col>
       <ion-col size="6" align-self-center>
         <ion-badge color="success">เปิดอยู่</ion-badge> <span class="time text-ellipsis"> จนถึง {{dataDetail.endtime
-          |date: "shortTime"}}</span>
+          |date: "HH:mm"}}</span>
 
       </ion-col>
     </ion-row>
@@ -43,7 +44,8 @@
     <div *ngIf="dataDetail && dataDetail.imagereview && dataDetail.imagereview.length < 6">
       <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
         <ion-row>
-          <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview;let i = index" (click)="openImageIndex(i)">
+          <ion-col class="box" size="4" *ngFor="let item of dataDetail.imagereview;let i = index"
+            (click)="openImageIndex(i)">
             <img [src]="item" alt="err" class="imageshop">
           </ion-col>
         </ion-row>
@@ -52,7 +54,7 @@
     <div *ngIf="dataDetail && dataDetail.imagereview && dataDetail.imagereview.length > 6">
       <ion-grid *ngIf="dataDetail && dataDetail.imagereview">
         <ion-row>
-          <ion-col class="box" size="4" >
+          <ion-col class="box" size="4">
             <img [src]="dataDetail.imagereview[0]" (click)="openImageIndex(0)" alt="err" class="imageshop">
           </ion-col>
           <ion-col class="box" size="4">
@@ -68,9 +70,10 @@
             <img [src]="dataDetail.imagereview[4]" (click)="openImageIndex(4)" alt="err" class="imageshop">
           </ion-col>
           <ion-col class="box" size="4">
-            <img [src]="dataDetail.imagereview[5]"  alt="err" class="imageshop" [ngClass]="{'image-opacity': dataDetail.imagereview.length > 6}">
+            <img [src]="dataDetail.imagereview[5]" alt="err" class="imageshop"
+              [ngClass]="{'image-opacity': dataDetail.imagereview.length > 6}">
             <div class="centered" (click)="openImageIndex(5)">
-              <p class="font-image" >+{{dataDetail.imagereview.length - 6}}</p>
+              <p class="font-image">+{{dataDetail.imagereview.length - 6}}</p>
             </div>
           </ion-col>
         </ion-row>
@@ -79,7 +82,8 @@
 
   </div>
 
-  <ion-card class="bg-color" class="style " *ngIf="dataDetail && dataDetail.name && dataDetail.descreiption.title && dataDetail.descreiption.detail">
+  <ion-card class="bg-color" class="style "
+    *ngIf="dataDetail && dataDetail.name && dataDetail.descreiption.title && dataDetail.descreiption.detail">
     <ion-card-header>
       <ion-card-subtitle>{{dataDetail.descreiption.title}}</ion-card-subtitle>
       <ion-card-title>{{dataDetail.name}}</ion-card-title>
@@ -92,7 +96,8 @@
 
 
 </ion-content>
-<ion-footer *ngIf="dataDetail && dataDetail.house_no && dataDetail.district && dataDetail.subdistrict && dataDetail.province && dataDetail.village"
+<ion-footer
+  *ngIf="dataDetail && dataDetail.house_no && dataDetail.district && dataDetail.subdistrict && dataDetail.province && dataDetail.village"
   style="background-color: rgba(255, 103, 43, 0.938);">
   <!-- <ion-grid class="name-footer" style="background-color: rgba(255, 103, 43, 0.938);">
     <ion-row>

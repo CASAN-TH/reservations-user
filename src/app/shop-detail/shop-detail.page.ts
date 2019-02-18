@@ -52,11 +52,13 @@ export class ShopDetailPage implements OnInit {
     await this.loading.presentLoadingWithOptions();
     try {
       const res: any = await this.shopService.getShopById(this.requestShoplist);
+      // res.data.endtime = new Date(res.data.endtime).setHours(-7, 0, 0, 0);
+      // res.data.endtime = new Date(res.data.endtime);
       this.dataDetail = res.data;
       console.log(this.dataDetail);
       await this.loading.dismissOnPageChange()
     } catch (error) {
-      await  this.loading.dismissOnPageChange()
+      await this.loading.dismissOnPageChange()
     }
 
   }
