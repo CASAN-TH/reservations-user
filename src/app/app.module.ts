@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ModalOpenimagePageModule } from './modals/modal-openimage/modal-openimage.module';
 import { HeaderColor } from '@ionic-native/header-color/ngx';
 import { ModalDetailPageModule } from './modals/modal-detail/modal-detail.module';
+import { SigninPageModule } from './pages/signin/signin.module';
 
 
 
@@ -24,7 +25,8 @@ import { ModalDetailPageModule } from './modals/modal-detail/modal-detail.module
     IonicModule.forRoot(),
     AppRoutingModule,HttpClientModule,
     ModalOpenimagePageModule,
-    ModalDetailPageModule
+    ModalDetailPageModule,
+    SigninPageModule
   ],
   providers: [
     StatusBar,

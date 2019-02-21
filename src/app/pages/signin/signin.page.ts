@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../services/loading/loading.service';
@@ -14,7 +14,8 @@ export class SigninPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public authService: AuthService,
-    public loading: LoadingService
+    public loading: LoadingService,
+    public modalController: ModalController
   ) { }
 
   username: any = '';
@@ -40,7 +41,10 @@ export class SigninPage implements OnInit {
         window.localStorage.setItem(environment.apiURL + 'user', JSON.stringify(me.data));
       }
       await this.loading.dismissOnPageChange();
-      this.navCtrl.navigateBack('');
+      this.modalController.dismiss({
+        'result': 'getNewData'
+      });
+      // this.navCtrl.navigateBack('');
     } catch (error) {
       console.log(error);
       this.loading.dismissOnPageChange();
@@ -55,7 +59,9 @@ export class SigninPage implements OnInit {
 
   }
   cancel() {
-    this.navCtrl.navigateForward('');
+    // this.navCtrl.navigateForward('');
+    this.modalController.dismiss();
+
   }
   singup() {
     this.navCtrl.navigateForward('register');

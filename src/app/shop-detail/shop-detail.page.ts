@@ -1,3 +1,4 @@
+import { SigninPage } from './../pages/signin/signin.page';
 import { LoadingService } from './../services/loading/loading.service';
 import { QueueService } from './../services/queue/queue.service';
 
@@ -77,12 +78,22 @@ export class ShopDetailPage implements OnInit {
   back() {
     this.navCtrl.navigateForward('');
   }
-  reserv() {
+  async reserv() {
     if (this.dataToken) {
 
       this.navCtrl.navigateForward('queue-detail');
     } else {
-      this.navCtrl.navigateForward('signin');
+      const modal = await this.modalController.create({
+        component: SigninPage,
+        componentProps: { value: 123 }
+      });
+      await modal.present();
+      const data = await modal.onDidDismiss();
+      console.log(data);
+      if (data) {
+        this.ngOnInit();
+      }
+      // this.navCtrl.navigateForward('signin');
 
     }
 
