@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ModalController } from '@ionic/angular';
 import { AuthService } from '../../services/auth/auth.service';
 import { environment } from '../../../environments/environment';
 import { LoadingService } from '../../services/loading/loading.service';
@@ -21,7 +21,8 @@ export class RegisterPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public authService: AuthService,
-    public loading: LoadingService
+    public loading: LoadingService,
+    public modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -32,8 +33,16 @@ export class RegisterPage implements OnInit {
       const res: any = await this.authService.register(this.regisData);
       window.localStorage.setItem(environment.apiURL + '@token', res.token);
       console.log(res);
+      if (res) {
+        let me: any = await this.authService.me();
+        console.log(me)
+        window.localStorage.setItem(environment.apiURL + 'user', JSON.stringify(me.data));
+      }
       await this.loading.dismissOnPageChange();
-      this.navCtrl.navigateForward('queue-detail');
+      this.modalController.dismiss({
+        'result': 'closePage'
+      });
+      // this.navCtrl.navigateForward('queue-detail');
     } catch (error) {
       await this.loading.dismissOnPageChange();
       if (error) {
@@ -55,6 +64,7 @@ export class RegisterPage implements OnInit {
     //   lastname: '',
     //   email: ''
     // };
-    this.navCtrl.navigateForward('signin');
+    // this.navCtrl.navigateForward('signin');
+    this.modalController.dismiss();
   }
 }

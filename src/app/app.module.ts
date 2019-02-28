@@ -14,6 +14,7 @@ import { ModalOpenimagePageModule } from './modals/modal-openimage/modal-openima
 import { HeaderColor } from '@ionic-native/header-color/ngx';
 import { ModalDetailPageModule } from './modals/modal-detail/modal-detail.module';
 import { SigninPageModule } from './pages/signin/signin.module';
+import { RegisterPageModule } from './pages/register/register.module';
 
 
 
@@ -26,7 +27,8 @@ import { SigninPageModule } from './pages/signin/signin.module';
     AppRoutingModule,HttpClientModule,
     ModalOpenimagePageModule,
     ModalDetailPageModule,
-    SigninPageModule
+    SigninPageModule,
+    RegisterPageModule
   ],
   providers: [
     StatusBar,

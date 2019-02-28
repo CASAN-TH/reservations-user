@@ -3,6 +3,7 @@ import { NavController, ModalController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { environment } from 'src/environments/environment';
 import { LoadingService } from '../../services/loading/loading.service';
+import { RegisterPage } from '../register/register.page';
 
 @Component({
   selector: 'app-signin',
@@ -63,8 +64,21 @@ export class SigninPage implements OnInit {
     this.modalController.dismiss();
 
   }
-  singup() {
-    this.navCtrl.navigateForward('register');
+  async singup() {
+    const modal = await this.modalController.create({
+      component: RegisterPage,
+      componentProps: { value: 123 }
+    });
+    await modal.present();
+    const data = await modal.onDidDismiss();
+    console.log(data.data);
+    if (data.data.result === 'closePage') {
+      console.log('lllll')
+      this.modalController.dismiss();
+    }
+    setTimeout(() => {
+      this.loading.dismissOnPageChange();
+    }, 500);
 
   }
 

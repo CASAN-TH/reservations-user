@@ -48,7 +48,8 @@ export class Tab3Page {
     console.log(data);
     if (data) {
       this.ionViewWillEnter();
+    } else if (data.data.result === 'closePage') {
+      this.modalController.dismiss();
     }
-    // this.navCtrl.navigateForward('signin');
   }
 }
