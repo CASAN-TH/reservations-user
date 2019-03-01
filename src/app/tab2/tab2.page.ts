@@ -27,7 +27,7 @@ export class Tab2Page {
 
   ionViewWillEnter() {
     this.token = window.localStorage.getItem(environment.apiURL + '@token');
-    console.log(this.token)
+    // console.log(this.token)
     this.user_id = JSON.parse(window.localStorage.getItem(environment.apiURL + 'user'))
     this.getQueueHisTrue();
     if (this.token === null) {
@@ -46,14 +46,14 @@ export class Tab2Page {
   }
 
   segmentChanged(ev: any) {
-    console.log(ev)
+    // console.log(ev)
     if (ev.detail.value == 'getQueueHis') {
-      console.log(ev)
+      // console.log(ev)
       this.queuehistory = [];
       this.queuehistorytrue = [];
       this.getQueueHis();
     } else if (ev.detail.value == 'getQueueHisTrue') {
-      console.log(ev)
+      // console.log(ev)
       this.queuehistory = [];
       this.queuehistorytrue = [];
       this.getQueueHisTrue();
@@ -65,6 +65,7 @@ export class Tab2Page {
       try {
         let res: any = await this.queue.getQueueHistory(this.user_id._id);
         this.queuehistory = res;
+        console.log(this.queuehistory);
         await this.loading.dismissOnPageChange();
 
       } catch (error) {

@@ -73,7 +73,7 @@ export class QueueDetailPage implements OnInit {
       }
       let res: any = await this.queueService.saveQueue(dataSave);
       this.loading.dismissOnPageChange()
-      this.navCrtl.navigateForward('');
+      this.navCrtl.navigateForward('/tabs/tab2');
     } catch (error) {
       this.loading.dismissOnPageChange()
     }

@@ -38,7 +38,7 @@
 
     </ion-col>
     <ion-col size="5">
-      <ion-button mode="md" class="fs" expand="block" fill="outline" (click)="confirm()">ยืนยัน</ion-button>
+      <ion-button mode="md" class="fs" expand="block" fill="outline" [disabled]="!people" (click)="confirm()">ยืนยัน</ion-button>
 
     </ion-col>
     <ion-col size="5">

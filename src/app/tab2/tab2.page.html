@@ -15,9 +15,11 @@
       ประวัติการจอง
     </ion-segment-button>
   </ion-segment>
-  <div *ngIf="queuehistorytrue && queuehistorytrue.data && queuehistorytrue.data.length === 0 ">
+  <div
+    *ngIf="(queuehistorytrue && queuehistorytrue.data && queuehistorytrue.data.length === 0)||(queuehistory && queuehistory.data && queuehistory.data.length ===0) ">
     <h1 class="text-center">ไม่มีข้อมูลการจอง</h1>
   </div>
-  <app-ticket *ngIf="queuehistorytrue && queuehistorytrue.data && queuehistorytrue.data.length > 0" [queuetrue]="queuehistorytrue" [queue]="queuehistory" (_idqueue)="open($event)">
+  <app-ticket *ngIf="queuehistorytrue && queuehistorytrue.data && queuehistorytrue.data.length > 0"
+    [queuetrue]="queuehistorytrue" [queue]="queuehistory" (_idqueue)="open($event)">
   </app-ticket>
 </ion-content>

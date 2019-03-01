@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { NavController, ModalController } from '@ionic/angular';
 import { SigninPage } from '../pages/signin/signin.page';
+import { LoadingService } from '../services/loading/loading.service';
 
 @Component({
   selector: 'app-tab3',
@@ -14,6 +15,7 @@ export class Tab3Page {
   constructor(
     private navCtrl: NavController,
     public modalController: ModalController,
+    public loading: LoadingService
 
   ) {
 
@@ -35,8 +37,14 @@ export class Tab3Page {
   }
 
   logout() {
+    this.loading.presentLoadingWithOptions();
     window.localStorage.clear()
-    this.ionViewWillEnter()
+    setTimeout(() => {
+      this.ionViewWillEnter();
+      this.loading.dismissOnPageChange();
+    }, 1400);
+    this.loading.presentToastWithOptions('ออกจากระบบสำเร็จ');
+
   }
   async login() {
     const modal = await this.modalController.create({
